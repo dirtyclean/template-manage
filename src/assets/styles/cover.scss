@@ -335,7 +335,6 @@ textarea.ant-input {
   border-radius: unset;
 }
 // 移入显示body滚动条
-.table,
 .content-rb,
 .custom-modal-h {
   .ant-table-content:hover {
@@ -350,7 +349,6 @@ textarea.ant-input {
   }
 }
 // content 查询条件仅1行 下的tabel设置最小高度和固定表头滚动
-.table,
 .content-rb {
   .ant-table-content {
     min-height: calc(100vh - 341px);
@@ -368,7 +366,6 @@ textarea.ant-input {
   }
 }
 // 固定表头 y滚动条始终出现
-.table,
 .content-rb {
   .header-fixedy-table {
     .ant-table-content {
@@ -389,7 +386,6 @@ textarea.ant-input {
   }
 }
 // 固定表头 xy滚动条始终出现
-.table,
 .content-rb {
   .two-row-header-fixed-table {
     .ant-table-content {
