@@ -5,7 +5,7 @@
 export default {
   name: 'system',
   components: {},
-  data() {
+  data () {
     return {}
   }
 }

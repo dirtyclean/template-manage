@@ -81,7 +81,7 @@
 import { Button, Input, Row, Col, Modal, FormModel, Alert } from 'ant-design-vue'
 import { passwordIsPass } from '@/utils/validation'
 export default {
-  data() {
+  data () {
     let username = ''
     const userInfo = this.userInfo
     if (userInfo) {
@@ -171,7 +171,7 @@ export default {
   watch: {
     isShowModal: {
       immediate: true,
-      handler: function(isShowModal) {
+      handler: function (isShowModal) {
         if (isShowModal) {
           this.beforeShowModal()
         } else {
@@ -180,12 +180,12 @@ export default {
       }
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     this.$refs.form && this.$refs.form.resetFields()
   },
   methods: {
-    beforeShowModal() {},
-    async save() {
+    beforeShowModal () {},
+    async save () {
       const { password, newPassword, surePassword } = this.form
       await this.$apiReq.user.changePassword({
         password,
@@ -193,7 +193,7 @@ export default {
         surePassword
       })
     },
-    async handleOk() {
+    async handleOk () {
       this.confirmLoading = true
       this.$refs.form.validate(async valid => {
         console.log(valid, 'valid')
@@ -230,7 +230,7 @@ export default {
         }
       })
     },
-    handleCancel() {
+    handleCancel () {
       this.$emit('update:isShowModal', false)
     }
   }

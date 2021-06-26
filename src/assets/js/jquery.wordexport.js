@@ -1,7 +1,7 @@
 import 'file-saver'
 if (typeof jQuery !== 'undefined' && typeof saveAs !== 'undefined') {
-  ;(function($) {
-    $.fn.wordExport = function(fileName) {
+  ;(function ($) {
+    $.fn.wordExport = function (fileName) {
       fileName = typeof fileName !== 'undefined' ? fileName : 'jQuery-Word-Export'
       const statics = {
         mhtml: {
@@ -35,7 +35,7 @@ if (typeof jQuery !== 'undefined' && typeof saveAs !== 'undefined') {
       const markup = $(this).clone()
 
       // Remove hidden elements from the output
-      markup.each(function() {
+      markup.each(function () {
         const self = $(this)
         if (self.is(':hidden')) {
           self.remove()

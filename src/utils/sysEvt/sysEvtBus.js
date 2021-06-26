@@ -3,7 +3,7 @@ import EVT_ENUM_CONST from './sysEvtEnum.js'
 const EVT_BUS = new Vue()
 const eventRegs = new Map()
 // 注册
-function regOnEvent(vueName, evtType, evtHandler, uid) {
+function regOnEvent (vueName, evtType, evtHandler, uid) {
   let vueEvtMap = {}
   if (eventRegs.has(vueName)) {
     vueEvtMap = eventRegs.get(vueName)
@@ -23,7 +23,7 @@ function regOnEvent(vueName, evtType, evtHandler, uid) {
   console.log('已注册事件', vueName + '[' + evtType + ']')
 }
 // 清理
-function regOffEvent(vueName) {
+function regOffEvent (vueName) {
   console.log('Clear Event Begin--', vueName)
   if (eventRegs.has(vueName)) {
     const vueEvtMap = eventRegs.get(vueName)
@@ -36,7 +36,7 @@ function regOffEvent(vueName) {
   }
 }
 // 触发
-function raiseEvent(evtType, evtParam, uid) {
+function raiseEvent (evtType, evtParam, uid) {
   if (uid) {
     evtType += uid
     console.log('[raise]', evtType)

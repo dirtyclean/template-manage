@@ -100,7 +100,7 @@ export default {
     AInputPassword: Input.Password,
     APopover: Popover,
     verify: {
-      render(createElement) {
+      render (createElement) {
         const self = this
         return createElement('script', {
           attrs: {
@@ -108,7 +108,7 @@ export default {
             src: 'https://g.alicdn.com/AWSC/AWSC/awsc.js'
           },
           on: {
-            load() {
+            load () {
               self.$emit('loaded')
             }
           }
@@ -116,7 +116,7 @@ export default {
       }
     }
   },
-  data() {
+  data () {
     clearStorage()
     return {
       loginBtn: false,
@@ -135,10 +135,10 @@ export default {
       verifyData: {}
     }
   },
-  created() {},
-  mounted() {},
+  created () {},
+  mounted () {},
   methods: {
-    startVerify() {
+    startVerify () {
       /* global AWSC */
       // 实例化ic对象
       AWSC.use('ic', (state, module) => {
@@ -170,7 +170,7 @@ export default {
             console.log(failCode)
           },
           // 验证码加载异常时触发该回调参数
-          error: function(errorCode) {
+          error: function (errorCode) {
             console.log(errorCode)
           }
           // 该配置项为测试项 在仅用来测试验证码不同状态时使用。上线时请将其删除. 智能验证test配置项有4种不同的值对应不同的验证码状态，具体请参考文中参数定义说明部分。
@@ -181,12 +181,12 @@ export default {
         })
       })
     },
-    async login(data) {
+    async login (data) {
       const { token } = await this.$apiReq.login(data)
       setStorage('token', token)
       return await this.$apiReq.getUserInfo()
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault()
       const {
         form: { validateFields },
@@ -231,7 +231,7 @@ export default {
         }
       })
     },
-    loginSuccess(res) {
+    loginSuccess (res) {
       res = res || {}
       const { menus } = res
       if (!menus || !menus.length) {
@@ -251,11 +251,11 @@ export default {
       }, 1000)
       this.isLoginError = false
     },
-    resetVerify() {
+    resetVerify () {
       window.ic.reset() // 将智能验证重置为初始状态
       this.verifyData = {}
     },
-    requestFailed(err) {
+    requestFailed (err) {
       console.log(err, 'err')
       this.isLoginError = true
       this.errorMessage = ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试'

@@ -16,10 +16,10 @@ import '@/utils/editor'
 import '@/utils/directives'
 import '@/utils/sysEvt/sysEvtBus'
 moment.locale('zh-cn')
-simpleContent.install = function(Vue) {
+simpleContent.install = function (Vue) {
   Vue.component(simpleContent.name, simpleContent)
 }
-contentHeader.install = function(Vue) {
+contentHeader.install = function (Vue) {
   Vue.component(contentHeader.name, contentHeader)
 }
 const plugins = {}

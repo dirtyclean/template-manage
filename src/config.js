@@ -7,7 +7,7 @@ export const PAGINATION = (obj = {}) => {
     showSizeChanger: obj.showSizeChanger !== undefined ? obj.showSizeChanger : true,
     pageSizeOptions: obj.pageSizeOptions || ['5', '10', '20', '50'],
     pageSize: obj.pageSize || 10,
-    'show-total': function(total) {
+    'show-total': function (total) {
       return `共 ${total} 条`
     }
   }
@@ -22,10 +22,10 @@ export const DATEPICK_OPTION = (option = {}) => {
   option.showTime = option.showTime === false ? false : option.showTime || showTime
   const disabledDate = option.isDisabledDate
     ? {
-        disabledDate: current => {
-          return current && current > moment().endOf('day')
-        }
+      disabledDate: current => {
+        return current && current > moment().endOf('day')
       }
+    }
     : {}
   return {
     showTime: option.showTime,

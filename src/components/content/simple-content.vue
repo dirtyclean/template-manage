@@ -39,7 +39,7 @@ export default {
       default: ''
     }
   },
-  data() {
+  data () {
     return {
       tableData: [{ id: '123' }],
       tableLoading: false,
@@ -47,17 +47,17 @@ export default {
     }
   },
   computed: {},
-  mounted() {
+  mounted () {
     this.renderData()
   },
   methods: {
-    handleTableChange(pagination) {
+    handleTableChange (pagination) {
       console.log(pagination)
       this.pagination.current = pagination.current
       this.pagination.pageSize = pagination.pageSize
       this.getTableData()
     },
-    async renderData() {
+    async renderData () {
       this.tableLoading = true
       this.getTableData({
         pageNum: this.pagination.current,

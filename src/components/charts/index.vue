@@ -30,7 +30,7 @@ export default {
       default: true
     }
   },
-  data() {
+  data () {
     return {
       chart: null
     }
@@ -40,7 +40,7 @@ export default {
     // 监听图表数据加载完成
     loading: {
       immediate: false,
-      handler(loading) {
+      handler (loading) {
         if (!loading) {
           this.chartHideLoading()
           this.renderChart()
@@ -50,11 +50,11 @@ export default {
       }
     }
   },
-  mounted() {
+  mounted () {
     this.init()
   },
   methods: {
-    renderChart(seriesIndex = 0) {
+    renderChart (seriesIndex = 0) {
       const startTime = Date.now()
       console.log(this.option, 'this.option')
       console.log('开始')
@@ -82,7 +82,7 @@ export default {
       console.log((Date.now() - startTime) / 1000, '用时')
     },
     // 初始化
-    init() {
+    init () {
       // 实例化图表
       this.chart = echarts.init(this.$refs.chart)
       this.chartShowLoading()
@@ -90,7 +90,7 @@ export default {
       addEventListener('resize', this.resize)
     },
     // 图表加载中
-    chartShowLoading() {
+    chartShowLoading () {
       // 5.0.2版本 ---> 防止loading中, tooltip出现
       const chartBox = document.getElementsByClassName('chart-box')[0]
       chartBox && (chartBox.firstChild.style.zIndex = 2)
@@ -103,17 +103,17 @@ export default {
         zlevel: 0
       })
     },
-    chartHideLoading() {
+    chartHideLoading () {
       const chartBox = document.getElementsByClassName('chart-box')[0]
       chartBox && (chartBox.firstChild.style.zIndex = 1)
       this.chart.hideLoading()
     },
     // 响应宽度变化
-    resize() {
+    resize () {
       this.chart.resize()
     }
   },
-  beforeDestroy() {
+  beforeDestroy () {
     console.log('beforeDestroy')
     this.chart.dispose()
     removeEventListener('resize', this.resize)

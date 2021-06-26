@@ -1,4 +1,4 @@
-function storageIsEmpty(key) {
+function storageIsEmpty (key) {
   if (
     localStorage.getItem(key) === 'null' ||
     localStorage.getItem(key) === 'undefined' ||
@@ -8,7 +8,7 @@ function storageIsEmpty(key) {
   }
   return false
 }
-function getStorage(key) {
+function getStorage (key) {
   if (!storageIsEmpty(key)) {
     const value = localStorage.getItem(key)
     try {
@@ -18,17 +18,17 @@ function getStorage(key) {
     }
   }
 }
-function setStorage(key, value) {
+function setStorage (key, value) {
   if (typeof value !== 'object') {
     localStorage.setItem(key, value)
     return
   }
   localStorage.setItem(key, JSON.stringify(value))
 }
-function removeStorage(key) {
+function removeStorage (key) {
   localStorage.removeItem(key)
 }
-function clearStorage() {
+function clearStorage () {
   localStorage.clear()
 }
 

@@ -30,7 +30,7 @@ export default {
     AIcon: Icon,
     AButton: Button
   },
-  data() {
+  data () {
     return {
       // table
       columns: [
@@ -111,14 +111,14 @@ export default {
     }
   },
   computed: {},
-  mounted() {
+  mounted () {
     this.getTableData()
   },
   methods: {
-    search() {
+    search () {
       console.log('search', this.searchParams)
     },
-    openModal() {
+    openModal () {
       this.RAISE_EVT(this.EVT_ENUM.FW_SHOW_DIALOG, {
         component: () => import('./modal/index.vue'),
         params: {
@@ -130,7 +130,7 @@ export default {
         title: '新增'
       })
     },
-    del(delId) {
+    del (delId) {
       this.$apiReq.delApk({ id: delId }).then(() => {
         this.$message.success('删除成功')
         this.pagination.current = getFinalPageNum(
@@ -142,7 +142,7 @@ export default {
         this.getTableData()
       })
     },
-    async getTableData() {
+    async getTableData () {
       this.tableLoading = true
       this.$apiReq
         .getVersionList({
