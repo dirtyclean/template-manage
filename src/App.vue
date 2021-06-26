@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
-        <a-config-provider :locale="zhCN" :getPopupContainer="getPopupContainer" :transformCellText="transformCellText">
-            <router-view></router-view>
-        </a-config-provider>
-    </div>
+  <div id="app">
+    <a-config-provider :locale="zhCN" :getPopupContainer="getPopupContainer" :transformCellText="transformCellText">
+      <router-view></router-view>
+    </a-config-provider>
+  </div>
 </template>
 
 <script>
@@ -15,7 +15,7 @@ export default {
   components: {
     AConfigProvider: ConfigProvider
   },
-  data () {
+  data() {
     return {
       zhCN,
       transformCellText: ({ text }) => {
@@ -34,7 +34,7 @@ export default {
   },
   watch: {
     $route: {
-      handler: function (val, oldVal) {
+      handler: function(val, oldVal) {
         const loadDom = document.getElementById('initLoading')
         loadDom && loadDom.remove()
       },
@@ -44,19 +44,15 @@ export default {
     }
   },
   methods: {
-    getUserInfo () {
+    getUserInfo() {
       const { userInfo } = this
-      if (
-        (!userInfo || !Object.keys(userInfo).length) &&
-                window.location.hash !== '#/login' &&
-                getStorage('token')
-      ) {
+      if ((!userInfo || !Object.keys(userInfo).length) && window.location.hash !== '#/login' && getStorage('token')) {
         console.log('获取userInfo', getStorage('currUserRole'), window.location.hash)
         this.$apiReq.user.getUserInfo()
       }
     }
   },
-  created () {
+  created() {
     this.getUserInfo()
   }
 }
@@ -65,9 +61,9 @@ export default {
 <style lang="scss">
 @import '~@/assets/scss/main.scss';
 #app {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    width: 100%;
-    height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
 }
 </style>
