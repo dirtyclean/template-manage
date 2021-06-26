@@ -52,7 +52,7 @@
   "lint-staged": {
     "src/**/*.{js,vue,scss,css}": [
       "npm run prettier",
-      "vue-cli-service lint",
+      "eslint --fix",
       "git add"
     ]
   }
