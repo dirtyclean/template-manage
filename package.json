@@ -18,9 +18,11 @@
     "core-js": "^3.6.5",
     "echarts": "^5.1.1",
     "html-webpack-inline-plugin": "0.0.4",
+    "lint-staged": "^11.0.0",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "patch-package": "^6.2.2",
+    "prettier": "^1.19.1",
     "sass-loader": "^10.1.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.11",
@@ -43,5 +45,14 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue,scss,css}": [
+      "npm run prettier",
+      "git add"
+    ]
   }
 }
