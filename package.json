@@ -8,7 +8,7 @@
     "build:test": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint",
     "postinstall": "patch-package",
-    "prettier": "prettier --write *.{js,vue,scss,css} src/**/*.{js,vue,scss,css}"
+    "prettier": "prettier --write *.{js} src/**/*.{js,vue,scss,css}"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.5",
@@ -50,7 +50,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,vue,scss,css}": [
+    "*.{js}": [
       "prettier --config .prettierrc --write",
       "eslint --fix",
       "git add"
