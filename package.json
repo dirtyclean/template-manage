@@ -51,6 +51,7 @@
   "lint-staged": {
     "src/**/*.{js,vue,scss,css}": [
       "npm run prettier",
+      "npm run lint",
       "git add"
     ]
   }
