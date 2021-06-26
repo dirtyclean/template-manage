@@ -101,7 +101,7 @@ const vueConfig = {
         options.compilerOptions.directives = {
           html (node, directiveMeta) {
             // onIgnoreTagAttr 自定义匹配到不在白名单上的属性时的处理方法
-            (node.props || (node.props = [])).push({
+            ;(node.props || (node.props = [])).push({
               name: 'innerHTML',
               value: `xss(_s(${directiveMeta.value}), {
                 onIgnoreTagAttr: function (tag, name, value, isWhiteAttr) {
@@ -134,8 +134,7 @@ const vueConfig = {
       },
       less: {
         lessOptions: {
-          modifyVars: {
-          },
+          modifyVars: {},
           javascriptEnabled: true
         }
       }
