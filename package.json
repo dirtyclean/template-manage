@@ -1,0 +1,57 @@
+{
+  "name": "hello-world",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:test": "vue-cli-service build --mode test",
+    "lint": "vue-cli-service lint",
+    "postinstall": "patch-package",
+    "prettier": "prettier --write ./src/**/*.{js,vue,scss,css}"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.7.5",
+    "axios": "^0.21.1",
+    "babel-plugin-import": "^1.13.3",
+    "compression-webpack-plugin": "^8.0.0",
+    "core-js": "^3.6.5",
+    "echarts": "^5.1.1",
+    "html-webpack-inline-plugin": "0.0.4",
+    "moment": "^2.29.1",
+    "node-sass": "^5.0.0",
+    "patch-package": "^6.2.2",
+    "sass-loader": "^10.1.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "vue": "^2.6.11",
+    "vue-froala-wysiwyg": "^3.2.6",
+    "vue-router": "^3.5.1",
+    "vue-svg-loader": "^0.17.0-beta.2",
+    "vuex": "^3.6.2",
+    "xss": "^1.0.9"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue,scss,css}": [
+      "npm run prettier",
+      "npm run lint",
+      "git add"
+    ]
+  }
+}

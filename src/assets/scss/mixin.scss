@@ -1,0 +1,43 @@
+//颜色定义规范
+$background-color-theme1: #f6f6f7; //背景主题颜色1
+$background-color-theme2: #f5faff; //背景主题颜色2
+$background-color-theme3: #eef7f9; //背景主题颜色3
+
+$font-color-theme1: red; //字体主题颜色1
+$font-color-theme2: #652bf5; //字体主题颜色2
+$font-color-theme3: deepskyblue; //字体主题颜色3
+
+$color-primary: #0084ff; //主蓝色
+$text-color: #2b3b45; // 主文本色
+$color-red: #ff0037; //主红色
+$color-yellow: #ffb900; //主黄色
+$color-green: #5bc43a; //主绿色
+$color-blue: #00ccdd;
+
+@mixin font_color($color) {
+    /*通过该函数设置字体颜色，后期方便统一管理；*/
+    color: $color;
+    [data-theme='theme1'] & {
+        color: $font-color-theme1;
+    }
+    [data-theme='theme2'] & {
+        color: $font-color-theme2;
+    }
+    [data-theme='theme3'] & {
+        color: $font-color-theme3;
+    }
+}
+
+@mixin bg_color($color) {
+    /*通过该函数设置主题颜色，后期方便统一管理；*/
+    background-color: $color !important;
+    [data-theme='theme1'] & {
+        background-color: $background-color-theme1 !important;
+    }
+    [data-theme='theme2'] & {
+        background-color: $background-color-theme2 !important;
+    }
+    [data-theme='theme3'] & {
+        background-color: $background-color-theme3 !important;
+    }
+}
