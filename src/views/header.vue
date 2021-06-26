@@ -73,7 +73,7 @@ export default {
     ASelect: Select,
     ASelectOption: Select.Option
   },
-  data() {
+  data () {
     let isResetPassword
     let name = ''
     const userInfo = this.userInfo
@@ -91,15 +91,15 @@ export default {
       userRole: getStorage('currUserRole') || undefined // 用户角色
     }
   },
-  created() {
+  created () {
     this.checkPassword()
   },
   methods: {
-    switchRole() {
+    switchRole () {
       setStorage('currUserRole', this.userRole)
       this.$router.go(0)
     },
-    checkPassword() {
+    checkPassword () {
       this.$apiReq.user
         .checkPassword()
         .then(isNoChangePassword => {
@@ -111,7 +111,7 @@ export default {
           }
         })
     },
-    menuClick({ key }) {
+    menuClick ({ key }) {
       if (key === 'modification') {
         this.isOpenChangePasswordModal = true
       } else if (key === 'logout') {
