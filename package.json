@@ -51,13 +51,13 @@
   },
   "lint-staged": {
     "*.{js,vue,scss,css}": [
-      "npm run prettier",
-      "npm run lint",
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ],
     "src/**/*.{js,vue,scss,css}": [
-      "npm run prettier",
-      "npm run lint",
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   }
