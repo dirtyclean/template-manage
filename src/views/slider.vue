@@ -42,7 +42,7 @@ export default {
     AMenuItem: Menu.Item,
     AIcon: Icon
   },
-  data() {
+  data () {
     const userInfo = this.userInfo
     let menus = []
     if (userInfo) {
@@ -56,24 +56,24 @@ export default {
       getItemById
     }
   },
-  mounted() {
+  mounted () {
     this.selectedKeys = this.$route.path.split('/').filter(key => key)
     this.openKeys = this.selectedKeys.slice(0, 1)
   },
   computed: {},
   watch: {
-    $route() {
+    $route () {
       this.selectedKeys = this.$route.path.split('/').filter(key => key)
     }
   },
   methods: {
-    getIcon(router) {
+    getIcon (router) {
       const item = getItemById(this.$router.options.routes, router, 'name')
       if (item && item.meta) {
         return item.meta.icon
       }
     },
-    onOpenChange(openKeys) {
+    onOpenChange (openKeys) {
       const latestOpenKey = openKeys.find(key => this.openKeys.indexOf(key) === -1)
       this.rootSubmenuKeys = this.menus.map(({ router }) => router)
       if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
@@ -82,7 +82,7 @@ export default {
         this.openKeys = latestOpenKey ? [latestOpenKey] : []
       }
     },
-    menuClick({ keyPath, key }) {
+    menuClick ({ keyPath, key }) {
       console.log(keyPath, key)
       this.selectedKeys = keyPath
       this.$router.push({
