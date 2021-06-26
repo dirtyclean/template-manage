@@ -1,4 +1,5 @@
 <template>
+  <!-- 数量超过一个 显示重置按钮 -->
   <a-form-model layout="inline" class="index-search-form-model">
     <a-form-model-item
       v-for="({ antdApi, type, searchKey, fieldNames = { label: 'label', value: 'value' } },
@@ -69,7 +70,7 @@
 import { FormModel, Input, Select, Button, DatePicker, Cascader } from 'ant-design-vue'
 const { RangePicker } = DatePicker
 export default {
-  name: 'filter-form',
+  name: 'filterForm',
   components: {
     AFormModel: FormModel,
     AInput: Input,
@@ -81,7 +82,7 @@ export default {
     ARangePicker: RangePicker,
     ACascader: Cascader
   },
-  data () {
+  data() {
     this.inputSearchTimer = null
     this.initSearchParams = {}
     return {}
@@ -97,19 +98,19 @@ export default {
     }
   },
   watch: {},
-  mounted () {
+  mounted() {
     this.initSearchParams = {
       ...this.searchParams
     }
   },
   methods: {
-    search () {
+    search() {
       clearTimeout(this.inputSearchTimer)
       this.inputSearchTimer = setTimeout(() => {
         this.$emit('search')
       }, 600)
     },
-    reset () {
+    reset() {
       this.$emit('update:searchParams', {
         ...this.initSearchParams
       })

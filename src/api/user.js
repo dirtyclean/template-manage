@@ -98,8 +98,8 @@ const getUserInfo = async () => {
       res.menus = sortMenu(setPromiseBtns(menus))
       res.roleLevels = res.roleLevels
         ? Object.entries(res.roleLevels)
-          .map(([value, name]) => ({ value: ~~value, name }))
-          .filter(({ name }) => name)
+            .map(([value, name]) => ({ value: ~~value, name }))
+            .filter(({ name }) => name)
         : []
       Vue.prototype.setUserInfo({
         realName,
@@ -132,5 +132,14 @@ export default {
     checkPassword,
     getUserHavePromiseMenus,
     getUserInfo
+  },
+  getList: async () => {
+    return {
+      list: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+      rowCount: 10
+    }
+  },
+  del: async () => {
+    return true
   }
 }

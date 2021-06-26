@@ -130,7 +130,7 @@ const vueConfig = {
     extract: false, // Default: 生产环境下是 true，开发环境下是 false; 提取 CSS 在开发环境模式下是默认不开启的，因为它和 CSS 热重载不兼容
     loaderOptions: {
       sass: {
-        additionalData: '@import "@/assets/scss/mixin.scss";'
+        additionalData: '@import "@/assets/styles/mixin.scss";'
       },
       less: {
         lessOptions: {

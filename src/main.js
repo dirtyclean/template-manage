@@ -10,16 +10,16 @@ import filters from '@/utils/filters'
 import xss from 'xss'
 import { Message, Notification } from 'ant-design-vue'
 import config from './config'
-import simpleContent from '@/components/content/simple-content'
+import simpleTable from '@/components/content/simple-table'
 import contentHeader from '@/components/content/content-header'
 import '@/utils/editor'
 import '@/utils/directives'
 import '@/utils/sysEvt/sysEvtBus'
 moment.locale('zh-cn')
-simpleContent.install = function (Vue) {
-  Vue.component(simpleContent.name, simpleContent)
+simpleTable.install = function(Vue) {
+  Vue.component(simpleTable.name, simpleTable)
 }
-contentHeader.install = function (Vue) {
+contentHeader.install = function(Vue) {
   Vue.component(contentHeader.name, contentHeader)
 }
 const plugins = {}
@@ -38,7 +38,7 @@ plugins.install = vue => {
   }
 }
 Vue.use(plugins)
-Vue.use(simpleContent)
+Vue.use(simpleTable)
 Vue.use(contentHeader)
 Vue.config.productionTip = false
 

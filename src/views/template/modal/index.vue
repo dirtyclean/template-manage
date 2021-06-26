@@ -23,7 +23,7 @@
 <script>
 import { Button, Input, Row, Col, FormModel } from 'ant-design-vue'
 export default {
-  data () {
+  data() {
     let operator = ''
     const userInfo = this.userInfo
     if (userInfo) {
@@ -54,20 +54,25 @@ export default {
     ACol: Col
   },
   props: {
-    params: {
-      required: true,
+    currRow: {
+      required: false,
       type: [Object]
+    },
+    updateData: {
+      required: true,
+      type: Function
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.$refs.form && this.$refs.form.resetFields()
   },
-  mounted () {
+  mounted() {
     this.beforeShowModal()
   },
   methods: {
-    beforeShowModal () {},
-    async handleOk () {
+    beforeShowModal() {},
+    async save() {},
+    async handleOk() {
       this.confirmLoading = true
       this.$refs.form.validate(async valid => {
         console.log(valid, 'valid')
@@ -77,7 +82,7 @@ export default {
             .then(() => {
               this.$message.success('操作成功')
               this.RAISE_EVT(this.EVT_ENUM.FW_CLOSE_DIALOG)
-              this.params.updateData()
+              this.updateData()
             })
             .catch(e => {
               console.log(e)

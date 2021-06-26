@@ -1,6 +1,6 @@
 <template>
   <div>
-    <contentHeader :filterComponentsData="filterComponentsData" :searchParams.sync="searchParams" @search="search">
+    <contentHeader :filterComponentsData="filterComponentsData" :searchParams.sync="searchParams" @search="updateTable">
       <template slot="btn">
         <a-button class="ml20" type="primary" @click="openModal()">
           <a-icon type="plus"></a-icon>
@@ -8,29 +8,25 @@
         </a-button>
       </template>
     </contentHeader>
-    <simpleContent :columns="columns">
+    <simpleTable :columns="columns" :getAsyncTableData="getTableData" ref="simpleTable" :asyncDelApi="del">
       <template v-slot:operate="record">
-        <span>操作{{ record }}</span>
+        <span>作用域插槽{{ record }}</span>
       </template>
-    </simpleContent>
+    </simpleTable>
   </div>
 </template>
 
 <script>
-import { getFinalPageNum } from '@/utils/methods'
-import simpleContent from '@/components/content/simple-content'
-import contentHeader from '@/components/content/content-header'
 import { Icon, Button } from 'ant-design-vue'
 import { DATEPICK_OPTION } from '@/config'
+
 export default {
   name: 'content-simple',
   components: {
-    simpleContent,
-    contentHeader,
     AIcon: Icon,
     AButton: Button
   },
-  data () {
+  data() {
     return {
       // table
       columns: [
@@ -47,8 +43,36 @@ export default {
           dataIndex: 'slot',
           scopedSlots: { customRender: 'operate' },
           width: 200
+        },
+        {
+          title: '操作',
+          dataIndex: 'operate',
+          customRender: (text, record) => {
+            return (
+              <div>
+                <span
+                  class="primary-color mr10"
+                  on-click={() => {
+                    this.openModal(record)
+                  }}
+                >
+                  编辑
+                </span>
+                <span
+                  class="danger-color"
+                  on-click={() => {
+                    this.$refs.simpleTable.del()
+                  }}
+                >
+                  删除
+                </span>
+              </div>
+            )
+          },
+          width: 200
         }
       ],
+      // filter
       filterComponentsData: [
         {
           type: 'input',
@@ -104,55 +128,47 @@ export default {
         'date-picker': this.$moment(),
         'range-picker': [],
         cascader: []
-      },
-      tableData: [],
-      tableLoading: false,
-      currRow: undefined
+      }
     }
   },
   computed: {},
-  mounted () {
-    this.getTableData()
-  },
+  mounted() {},
   methods: {
-    search () {
-      console.log('search', this.searchParams)
+    updateTable() {
+      this.$refs.simpleTable.renderTable()
     },
-    openModal () {
+    openModal(record) {
       this.RAISE_EVT(this.EVT_ENUM.FW_SHOW_DIALOG, {
         component: () => import('./modal/index.vue'),
         params: {
-          isAdd: true,
-          init: () => {
-            this.init()
+          currRow: record,
+          updateData: () => {
+            this.updateTable()
           }
         },
-        title: '新增'
+        title: record ? '编辑' : '新增'
       })
     },
-    del (delId) {
-      this.$apiReq.delApk({ id: delId }).then(() => {
-        this.$message.success('删除成功')
-        this.pagination.current = getFinalPageNum(
-          this.pagination.total,
-          this.pagination.current,
-          this.pagination.pageSize,
-          1
-        )
-        this.getTableData()
-      })
+    async del(delId) {
+      await this.$apiReq.del({ id: delId })
     },
-    async getTableData () {
-      this.tableLoading = true
-      this.$apiReq
-        .getVersionList({
-          pageNum: this.pagination.current,
-          pageSize: this.pagination.pageSize
+    async getTableData(
+      pagination = {
+        pageNum: 1,
+        pageSize: 10
+      }
+    ) {
+      console.log(pagination, this.searchParams)
+      return await this.$apiReq
+        .getList({
+          ...pagination,
+          ...this.searchParams
         })
         .then(({ list, rowCount }) => {
-          this.tableLoading = false
-          this.tableData = list
-          this.pagination.total = rowCount
+          return {
+            list,
+            rowCount
+          }
         })
     }
   }

@@ -1,0 +1,135 @@
+.vBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.hBox {
+  display: flex;
+}
+
+.vh-grow {
+  flex-grow: 1;
+}
+
+.vh-content-center {
+  justify-content: center;
+}
+
+.vh-content-between {
+  justify-content: space-between;
+}
+
+.vh-content-around {
+  justify-content: space-around;
+}
+
+.vh-content-start {
+  justify-content: flex-start;
+}
+
+.vh-content-end {
+  justify-content: flex-end;
+}
+
+.vh-items-center {
+  align-items: center;
+}
+
+.vh-items-start {
+  align-items: flex-start;
+}
+
+.vh-items-end {
+  align-items: flex-end;
+}
+.t-center {
+  text-align: center;
+}
+
+.center {
+  @extend .hBox, .vh-content-center, .vh-items-center;
+}
+
+.h-between-center {
+  @extend .hBox, .vh-content-between, .vh-items-center;
+}
+.v-between-center {
+  @extend .vBox, .vh-content-between, .vh-items-center;
+}
+.v-start-center {
+  @extend .vBox, .vh-content-start, .vh-items-center;
+}
+.p-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+$unit: 1px;
+@for $i from 5 through 100 {
+  @if $i%5 == 0 {
+    .m#{$i} {
+      margin: $i * $unit !important;
+    }
+    .p#{$i} {
+      padding: $i * $unit !important;
+    }
+    .mr#{$i} {
+      margin-right: $i * $unit !important;
+    }
+    .ml#{$i} {
+      margin-left: $i * $unit !important;
+    }
+    .mb#{$i} {
+      margin-bottom: $i * $unit !important;
+    }
+    .mt#{$i} {
+      margin-top: $i * $unit !important;
+    }
+    .pr#{$i} {
+      padding-right: $i * $unit !important;
+    }
+    .pl#{$i} {
+      padding-left: $i * $unit !important;
+    }
+    .pb#{$i} {
+      padding-bottom: $i * $unit !important;
+    }
+    .pt#{$i} {
+      padding-top: $i * $unit !important;
+    }
+  }
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.scroll-y {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.ellipsis-one {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  display: inline-block;
+}
+.tljustify {
+  text-align-last: justify;
+}
+.primary-color {
+  color: #1890ff;
+}
+.danger-color {
+  color: red;
+}
+.warning-color {
+  color: #faad14;
+}

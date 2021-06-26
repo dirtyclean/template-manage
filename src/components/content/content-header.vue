@@ -1,5 +1,4 @@
 <template>
-  <!-- 数量超过一个 显示重置按钮 -->
   <div class="mb24">
     <div class="title">
       <filterForm :filterComponentsData="filterComponentsData" :searchParams.sync="tempSearchParams" @search="search" />
@@ -11,11 +10,11 @@
 <script>
 import filterForm from './filterForm.vue'
 export default {
-  name: 'content-header',
+  name: 'contentHeader',
   components: {
     filterForm
   },
-  data () {
+  data() {
     return {
       tempSearchParams: this.searchParams
     }
@@ -31,9 +30,9 @@ export default {
     }
   },
   watch: {},
-  mounted () {},
+  mounted() {},
   methods: {
-    search () {
+    search() {
       this.$emit('update:searchParams', {
         ...this.tempSearchParams
       })
