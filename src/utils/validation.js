@@ -14,9 +14,9 @@ const passwordIsPass = password => {
   if (
     !(
       /.*[a-z]{1,}.*/.test(password) &&
-            /.*[A-Z]{1,}.*/.test(password) &&
-            /.*\d{1,}.*/.test(password) &&
-            /.*[~!@#$%^&*\\.?]{1,}.*/.test(password)
+      /.*[A-Z]{1,}.*/.test(password) &&
+      /.*\d{1,}.*/.test(password) &&
+      /.*[~!@#$%^&*\\.?]{1,}.*/.test(password)
     )
   ) {
     return false

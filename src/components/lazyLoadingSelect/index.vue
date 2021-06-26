@@ -3,44 +3,42 @@
   通过search过滤数据，filterOption和optionFilterProp属性在这里无效
 -->
 <template>
-    <a-select
-        :placeholder="placeholder"
-        :showSearch="showSearch"
-        :optionFilterProp="optionFilterProp"
-        :show-arrow="showArrow"
-        @popupScroll="popupScroll"
-        @change="change"
-        @search="search"
-        @dropdownVisibleChange="updateCurrOptions"
-        :value="value"
-        :dropdown-match-select-width="dropdownMatchSelectWidth"
-        :option-label-prop="optionLabelProp"
-        :filterOption="false"
-        :allowClear="allowClear"
-        :not-found-content="notFoundContent"
-        :default-active-first-option="defaultActiveFirstOption"
-        :open="open"
-        :label-in-value="labelInValue"
-    >
-        <slot :currOptions="currOptions">
-            <a-select-option
-                v-for="(item, index) in currOptions"
-                :key="index"
-                :value="item[fieldNames.value]"
-                :title="item[fieldNames.label]"
-            >
-                {{ item[fieldNames.label] }}
-            </a-select-option>
-        </slot>
-    </a-select>
+  <a-select
+    :placeholder="placeholder"
+    :showSearch="showSearch"
+    :optionFilterProp="optionFilterProp"
+    :show-arrow="showArrow"
+    @popupScroll="popupScroll"
+    @change="change"
+    @search="search"
+    @dropdownVisibleChange="updateCurrOptions"
+    :value="value"
+    :dropdown-match-select-width="dropdownMatchSelectWidth"
+    :option-label-prop="optionLabelProp"
+    :filterOption="false"
+    :allowClear="allowClear"
+    :not-found-content="notFoundContent"
+    :default-active-first-option="defaultActiveFirstOption"
+    :open="open"
+    :label-in-value="labelInValue"
+  >
+    <slot :currOptions="currOptions">
+      <a-select-option
+        v-for="(item, index) in currOptions"
+        :key="index"
+        :value="item[fieldNames.value]"
+        :title="item[fieldNames.label]"
+      >
+        {{ item[fieldNames.label] }}
+      </a-select-option>
+    </slot>
+  </a-select>
 </template>
 <script>
 import { Select } from 'ant-design-vue'
-function getCurrPaginationData (pageNo, pageSize, array) {
+function getCurrPaginationData(pageNo, pageSize, array) {
   const offset = (pageNo - 1) * pageSize
-  return offset + pageSize >= array.length
-    ? array.slice(offset, array.length)
-    : array.slice(offset, offset + pageSize)
+  return offset + pageSize >= array.length ? array.slice(offset, array.length) : array.slice(offset, offset + pageSize)
 }
 
 export default {
@@ -48,7 +46,7 @@ export default {
     ASelect: Select,
     ASelectOption: Select.Option
   },
-  data () {
+  data() {
     return {
       currOptions: [], // 当前渲染的数据
       searchName: '',
@@ -72,7 +70,7 @@ export default {
     filterFuction: {
       type: Function,
       required: false,
-      default: function (searchName) {
+      default: function(searchName) {
         return this.dataSource.filter(item => item[this.fieldNames.label].includes(searchName)) || []
       }
     },
@@ -154,7 +152,7 @@ export default {
   watch: {
     options: {
       immediate: false,
-      handler (options) {
+      handler(options) {
         this.dataSource = options.map(item => ({ ...item }))
         this.pageNum = 1
         this.searchName = ''
@@ -163,7 +161,7 @@ export default {
     }
   },
   computed: {
-    textValue () {
+    textValue() {
       if (typeof this.value === 'object') {
         return this.value[this.fieldNames.value]
       } else {
@@ -172,10 +170,10 @@ export default {
     }
   },
   methods: {
-    change (value, option) {
+    change(value, option) {
       this.$emit('change', value, option)
     },
-    updateCurrOptions (isOpen) {
+    updateCurrOptions(isOpen) {
       console.log(isOpen, 'isOpen')
       this.searchName = '' // 因为选择器默认关闭下拉列表输入框的搜索内容会不见（所以我们把搜索值会置为空）
       if (isOpen) {
@@ -198,7 +196,7 @@ export default {
       }
       this.open = isOpen
     },
-    search (val) {
+    search(val) {
       if (!this.open) return
       this.searchName = val
       this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
@@ -207,14 +205,10 @@ export default {
         // filterOption为布尔类型时: 设置为false，即不走与optionFilterProp连用的组件自带过滤，此时optionFilterProp失效；
         // filterOption为函数类型时：可通过返回true/false自定义过滤，此时optionFilterProp同样失效；
         // 这里我们不使用filterOption，通过search改变currOptions，达到自定义过滤的目的
-        this.currOptions = getCurrPaginationData(
-          this.pageNum,
-          this.pageSize,
-          this.filterFuction(this.searchName)
-        )
+        this.currOptions = getCurrPaginationData(this.pageNum, this.pageSize, this.filterFuction(this.searchName))
       }, 600)
     },
-    popupScroll (e) {
+    popupScroll(e) {
       const { target } = e
       const scrollHeight = target.scrollHeight - target.scrollTop
       const clientHeight = target.clientHeight
@@ -224,9 +218,7 @@ export default {
       } else {
         // 滚动条触底
         if (scrollHeight < clientHeight + 5) {
-          const sourceLength = !this.searchName
-            ? this.dataSource.length
-            : this.filterFuction(this.searchName).length
+          const sourceLength = !this.searchName ? this.dataSource.length : this.filterFuction(this.searchName).length
           if (this.pageNum < Math.ceil(sourceLength / this.pageSize)) {
             this.pageNum = this.pageNum + 1
             if (!this.searchName) {

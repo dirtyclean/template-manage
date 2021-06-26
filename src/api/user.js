@@ -75,9 +75,8 @@ const getUserInfo = async () => {
             const item = list[i]
             if (parent && item.router.includes(':')) {
               if (
-                ((parent.router === 'areaManage' || parent.router === 'personManage') &&
-                                    permissionValid) ||
-                                (parent.router !== 'areaManage' && parent.router !== 'personManage')
+                ((parent.router === 'areaManage' || parent.router === 'personManage') && permissionValid) ||
+                (parent.router !== 'areaManage' && parent.router !== 'personManage')
               ) {
                 if (parent.promiseBtns) {
                   parent.promiseBtns.push(item.router.split(':')[1])
@@ -99,8 +98,8 @@ const getUserInfo = async () => {
       res.menus = sortMenu(setPromiseBtns(menus))
       res.roleLevels = res.roleLevels
         ? Object.entries(res.roleLevels)
-          .map(([value, name]) => ({ value: ~~value, name }))
-          .filter(({ name }) => name)
+            .map(([value, name]) => ({ value: ~~value, name }))
+            .filter(({ name }) => name)
         : []
       Vue.prototype.setUserInfo({
         realName,

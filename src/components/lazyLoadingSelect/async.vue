@@ -2,54 +2,48 @@
   异步懒加载数据
 -->
 <template>
-    <a-select
-        :placeholder="placeholder"
-        :showSearch="showSearch"
-        :optionFilterProp="optionFilterProp"
-        :show-arrow="showArrow"
-        @popupScroll="popupScroll"
-        :label-in-value="labelInValue"
-        @change="change"
-        @search="search"
-        @dropdownVisibleChange="updateCurrOptions"
-        :value="value"
-        :dropdown-match-select-width="dropdownMatchSelectWidth"
-        :option-label-prop="optionLabelProp"
-        :filterOption="false"
-        :allowClear="allowClear"
-        :not-found-content="
-            fetching
-                ? undefined
-                : (searchName || !isMustSearchGetOptions) && currOptions.length === 0
-                ? '搜索结果为空'
-                : null
-        "
-        :default-active-first-option="defaultActiveFirstOption"
-        :open="open"
-    >
-        <a-spin v-if="fetching" slot="notFoundContent" size="small" />
-        <template slot="suffixIcon">
-            <slot name="suffixIcon"></slot>
-        </template>
-        <slot :currOptions="currOptions">
-            <a-select-option
-                v-for="item in currOptions"
-                :key="item[fieldNames.key || fieldNames.value]"
-                :value="item[fieldNames.value]"
-                :title="item[fieldNames.label]"
-            >
-                {{ item[fieldNames.label] }}
-            </a-select-option>
-        </slot>
-    </a-select>
+  <a-select
+    :placeholder="placeholder"
+    :showSearch="showSearch"
+    :optionFilterProp="optionFilterProp"
+    :show-arrow="showArrow"
+    @popupScroll="popupScroll"
+    :label-in-value="labelInValue"
+    @change="change"
+    @search="search"
+    @dropdownVisibleChange="updateCurrOptions"
+    :value="value"
+    :dropdown-match-select-width="dropdownMatchSelectWidth"
+    :option-label-prop="optionLabelProp"
+    :filterOption="false"
+    :allowClear="allowClear"
+    :not-found-content="
+      fetching ? undefined : (searchName || !isMustSearchGetOptions) && currOptions.length === 0 ? '搜索结果为空' : null
+    "
+    :default-active-first-option="defaultActiveFirstOption"
+    :open="open"
+  >
+    <a-spin v-if="fetching" slot="notFoundContent" size="small" />
+    <template slot="suffixIcon">
+      <slot name="suffixIcon"></slot>
+    </template>
+    <slot :currOptions="currOptions">
+      <a-select-option
+        v-for="item in currOptions"
+        :key="item[fieldNames.key || fieldNames.value]"
+        :value="item[fieldNames.value]"
+        :title="item[fieldNames.label]"
+      >
+        {{ item[fieldNames.label] }}
+      </a-select-option>
+    </slot>
+  </a-select>
 </template>
 <script>
 import { Select, Spin } from 'ant-design-vue'
-function getCurrPaginationData (pageNo, pageSize, array) {
+function getCurrPaginationData(pageNo, pageSize, array) {
   const offset = (pageNo - 1) * pageSize
-  return offset + pageSize >= array.length
-    ? array.slice(offset, array.length)
-    : array.slice(offset, offset + pageSize)
+  return offset + pageSize >= array.length ? array.slice(offset, array.length) : array.slice(offset, offset + pageSize)
 }
 export default {
   components: {
@@ -57,7 +51,7 @@ export default {
     ASelectOption: Select.Option,
     ASpin: Spin
   },
-  data () {
+  data() {
     return {
       currOptions: [], // 当前渲染的数据
       searchName: '',
@@ -98,7 +92,7 @@ export default {
     getAsyncOptions: {
       type: Function,
       required: true,
-      default: function () {
+      default: function() {
         return []
       }
     },
@@ -165,14 +159,14 @@ export default {
       default: true
     }
   },
-  mounted () {
+  mounted() {
     this._lastFetchId = 0
   },
   methods: {
-    change (value, option) {
+    change(value, option) {
       this.$emit('change', value, option)
     },
-    updateCurrOptions (isOpen) {
+    updateCurrOptions(isOpen) {
       console.log(isOpen, 'isOpen')
       this.open = isOpen
       this.searchName = ''
@@ -206,7 +200,7 @@ export default {
         this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
       }
     },
-    async setSearchResult (val, pageNum = this.pageNum, pageSize = this.pageSize) {
+    async setSearchResult(val, pageNum = this.pageNum, pageSize = this.pageSize) {
       this._lastFetchId += 1
       const fetchId = this._lastFetchId
       if (this.isAsyncPagination) {
@@ -236,7 +230,7 @@ export default {
         })
       }
     },
-    search (val) {
+    search(val) {
       if (!this.open) return
       this.searchName = val
       this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
@@ -254,7 +248,7 @@ export default {
         this.fetching = false
       }, 600)
     },
-    async popupScroll (e) {
+    async popupScroll(e) {
       const { target } = e
       const scrollHeight = target.scrollHeight - target.scrollTop
       const clientHeight = target.clientHeight

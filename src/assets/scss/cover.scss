@@ -1,186 +1,186 @@
 @import 'mixin';
 .ant-layout {
-    @include bg_color($background-color-theme1);
+  @include bg_color($background-color-theme1);
 }
 // ant desing 样式修改
 
 /* 分页 start */
 .ant-pagination-total-text {
-    line-height: 32px !important;
+  line-height: 32px !important;
 }
 .small-pagination {
-    .ant-pagination-total-text {
-        line-height: 24px !important;
-    }
+  .ant-pagination-total-text {
+    line-height: 24px !important;
+  }
 }
 /* 分页 end */
 
 /* 调整steps的样式 start */
 .custom-steps {
-    .ant-steps-item-content {
-        width: 90% !important;
-    }
-    .ant-steps-item-description {
-        white-space: normal !important;
-    }
-    .ant-steps-item-title {
-        width: 100%;
-    }
+  .ant-steps-item-content {
+    width: 90% !important;
+  }
+  .ant-steps-item-description {
+    white-space: normal !important;
+  }
+  .ant-steps-item-title {
+    width: 100%;
+  }
 }
 /* 调整steps的样式 end */
 
 /* modal start */
 .custom-modal {
-    .ant-modal-body {
-        max-height: 720px;
-        overflow-y: auto;
-        padding-bottom: 56px;
-    }
-    .ant-card-body {
-        height: 620px;
-        overflow-y: auto;
-        background-color: #f5f6f7;
-        border-radius: 10px;
-    }
-    .ant-card-bordered {
-        border-radius: 10px;
-    }
+  .ant-modal-body {
+    max-height: 720px;
+    overflow-y: auto;
+    padding-bottom: 56px;
+  }
+  .ant-card-body {
+    height: 620px;
+    overflow-y: auto;
+    background-color: #f5f6f7;
+    border-radius: 10px;
+  }
+  .ant-card-bordered {
+    border-radius: 10px;
+  }
 }
 .custom-modal-h {
-    @extend .custom-modal;
-    .ant-modal-body {
-        height: 700px;
-    }
+  @extend .custom-modal;
+  .ant-modal-body {
+    height: 700px;
+  }
 }
 .ant-modal-header {
-    padding-top: 30px !important;
+  padding-top: 30px !important;
 }
 .ant-modal-mask {
-    background-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .ant-modal-body {
-    .ant-form-item-label {
-        font-size: 14px;
-        font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium;
-    }
+  .ant-form-item-label {
+    font-size: 14px;
+    font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium;
+  }
 }
 
 .ant-modal-content {
-    border-radius: 20px !important;
+  border-radius: 20px !important;
 }
 
 .ant-modal-header {
-    border-radius: 20px 20px 0 0 !important;
-    border-bottom: none !important;
-    .ant-modal-title {
-        font-size: 16px;
-        font-family: AlibabaPuHuiTi-Medium;
-    }
+  border-radius: 20px 20px 0 0 !important;
+  border-bottom: none !important;
+  .ant-modal-title {
+    font-size: 16px;
+    font-family: AlibabaPuHuiTi-Medium;
+  }
 }
 
 /* modal end */
 
 /* cascader当select用调整样式 start */
 .select-cascader-parent {
-    .ant-cascader-menus {
-        width: 100%;
-    }
-    .ant-cascader-menu {
-        width: 100.5%;
-        background-color: #fff;
-        outline: 1px solid #e8e8e8;
-    }
-    .ant-cascader-menu:not(:first-child) {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
+  .ant-cascader-menus {
+    width: 100%;
+  }
+  .ant-cascader-menu {
+    width: 100.5%;
+    background-color: #fff;
+    outline: 1px solid #e8e8e8;
+  }
+  .ant-cascader-menu:not(:first-child) {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
 }
 
 /* cascader当select用调整样式 end */
 
 /* 调整左侧菜单 start */
 .ant-layout-sider-collapsed {
-    min-width: 80px !important;
-    width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
 }
 
 .custom-sider {
-    padding: 10px 0;
-    padding-right: 20px;
-    border-radius: 30px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
-        background-image: none;
-        background-color: #d0d2d3;
-        width: 12px;
-        transform: rotate(45deg) translateX(-5px);
-    }
-    .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
-        background-image: none;
-        background-color: #d0d2d3;
-        width: 12px;
-        transform: rotate(-45deg) translateX(5.5px);
-    }
-    .ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
-        transform: rotate(45deg) translateX(5.5px);
-    }
-    .ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
-        transform: rotate(-45deg) translateX(-5.5px);
-    }
-    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-        background-color: transparent;
-    }
-    .ant-menu-item-selected {
-        color: $color-primary !important;
-        .p-title {
-            color: $color-primary !important;
-        }
-    }
-    .ant-menu-item {
-        color: $text-color;
-        font-family: AlibabaPuHuiTi-Regular;
-    }
-    .ant-menu-item:hover {
-        .p-title {
-            color: $color-primary !important;
-        }
-    }
-    .ant-menu-submenu-inline > .ant-menu-submenu-title:hover {
-        .p-title {
-            color: $color-primary !important;
-        }
-        .ant-menu-submenu-arrow::before {
-            background: $color-primary !important;
-        }
-        .ant-menu-submenu-arrow::after {
-            background: $color-primary !important;
-        }
-    }
-    .ant-menu-submenu-selected {
-        .p-title {
-            color: $color-primary !important;
-        }
-        .ant-menu-submenu-arrow::before {
-            background: $color-primary !important;
-        }
-        .ant-menu-submenu-arrow::after {
-            background: $color-primary !important;
-        }
-    }
-    .ant-menu-inline .ant-menu-item::after {
-        border-right: none;
-    }
-    .ant-menu-item:active {
-        background-color: transparent;
-    }
-    .ant-menu-inline,
-    .ant-menu-inline-collapsed {
-        border-right: none;
-    }
+  padding: 10px 0;
+  padding-right: 20px;
+  border-radius: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+    background-image: none;
+    background-color: #d0d2d3;
+    width: 12px;
+    transform: rotate(45deg) translateX(-5px);
+  }
+  .ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+    background-image: none;
+    background-color: #d0d2d3;
+    width: 12px;
+    transform: rotate(-45deg) translateX(5.5px);
+  }
+  .ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+    transform: rotate(45deg) translateX(5.5px);
+  }
+  .ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+    transform: rotate(-45deg) translateX(-5.5px);
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: transparent;
+  }
+  .ant-menu-item-selected {
+    color: $color-primary !important;
     .p-title {
-        font-family: AlibabaPuHuiTi-Medium;
+      color: $color-primary !important;
     }
+  }
+  .ant-menu-item {
+    color: $text-color;
+    font-family: AlibabaPuHuiTi-Regular;
+  }
+  .ant-menu-item:hover {
+    .p-title {
+      color: $color-primary !important;
+    }
+  }
+  .ant-menu-submenu-inline > .ant-menu-submenu-title:hover {
+    .p-title {
+      color: $color-primary !important;
+    }
+    .ant-menu-submenu-arrow::before {
+      background: $color-primary !important;
+    }
+    .ant-menu-submenu-arrow::after {
+      background: $color-primary !important;
+    }
+  }
+  .ant-menu-submenu-selected {
+    .p-title {
+      color: $color-primary !important;
+    }
+    .ant-menu-submenu-arrow::before {
+      background: $color-primary !important;
+    }
+    .ant-menu-submenu-arrow::after {
+      background: $color-primary !important;
+    }
+  }
+  .ant-menu-inline .ant-menu-item::after {
+    border-right: none;
+  }
+  .ant-menu-item:active {
+    background-color: transparent;
+  }
+  .ant-menu-inline,
+  .ant-menu-inline-collapsed {
+    border-right: none;
+  }
+  .p-title {
+    font-family: AlibabaPuHuiTi-Medium;
+  }
 }
 
 /* 调整左侧菜单 end */
@@ -189,136 +189,136 @@
    调整表单样式 start
   */
 .form-item-mb10 {
-    .ant-form-item {
-        margin-bottom: 10px !important;
-    }
+  .ant-form-item {
+    margin-bottom: 10px !important;
+  }
 }
 
 .home {
-    .index-search-form-model {
-        .ant-form-item {
-            margin-bottom: 0 !important;
-        }
+  .index-search-form-model {
+    .ant-form-item {
+      margin-bottom: 0 !important;
     }
-    .ant-modal-footer {
-        display: none !important;
-    }
+  }
+  .ant-modal-footer {
+    display: none !important;
+  }
 }
 
 .index-search-form-model {
-    .ant-form-item {
-        margin-bottom: 14px !important;
-        .ant-input,
-        .ant-select {
-            width: 180px;
-            height: 40px;
-        }
-        .ant-calendar-picker,
-        .range-picker-showtime {
-            width: auto !important;
-            .ant-input {
-                width: 300px;
-            }
-        }
-        .ant-select-selection--single {
-            height: 40px;
-        }
-        .ant-select-selection__rendered {
-            line-height: 40px;
-        }
-        .ant-form-item-children {
-            & > button:nth-child(1) {
-                margin-right: 0;
-            }
-        }
+  .ant-form-item {
+    margin-bottom: 14px !important;
+    .ant-input,
+    .ant-select {
+      width: 180px;
+      height: 40px;
     }
+    .ant-calendar-picker,
+    .range-picker-showtime {
+      width: auto !important;
+      .ant-input {
+        width: 300px;
+      }
+    }
+    .ant-select-selection--single {
+      height: 40px;
+    }
+    .ant-select-selection__rendered {
+      line-height: 40px;
+    }
+    .ant-form-item-children {
+      & > button:nth-child(1) {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 .ant-pagination {
-    .ant-input,
-    .ant-select {
-        height: 32px !important;
-    }
-    .ant-select-selection--single {
-        height: 32px !important;
-    }
-    .ant-select-selection__rendered {
-        line-height: 32px !important;
-    }
+  .ant-input,
+  .ant-select {
+    height: 32px !important;
+  }
+  .ant-select-selection--single {
+    height: 32px !important;
+  }
+  .ant-select-selection__rendered {
+    line-height: 32px !important;
+  }
 
-    .ant-select-selection {
-        border-radius: 4px !important;
-    }
-    .ant-input {
-        border-radius: 4px !important;
-    }
+  .ant-select-selection {
+    border-radius: 4px !important;
+  }
+  .ant-input {
+    border-radius: 4px !important;
+  }
 }
 
 /* 全局表单样式 start */
 .ant-input-number-handler-wrap {
-    border-radius: 0 10px 10px 0 !important;
+  border-radius: 0 10px 10px 0 !important;
 }
 .ant-input,
 .ant-input-number,
 .ant-select {
-    // 高度全局 宽度非全局
-    height: 40px !important;
+  // 高度全局 宽度非全局
+  height: 40px !important;
 }
 
 .ant-select-selection--single {
-    height: 40px !important;
+  height: 40px !important;
 }
 // 多选框高度40
 .ant-select-selection--multiple {
-    padding-bottom: 1px !important;
-    .ant-select-selection__rendered > ul > li {
-        height: 28px !important;
-        margin-top: 5px !important;
-        line-height: 26px !important;
-        margin-bottom: 4px !important;
-    }
-    .ant-select-selection__clear {
-        margin-top: -2px !important;
-    }
+  padding-bottom: 1px !important;
+  .ant-select-selection__rendered > ul > li {
+    height: 28px !important;
+    margin-top: 5px !important;
+    line-height: 26px !important;
+    margin-bottom: 4px !important;
+  }
+  .ant-select-selection__clear {
+    margin-top: -2px !important;
+  }
 }
 .ant-select-selection--multiple {
-    ul > li {
-        height: 28px !important;
-        margin-top: 5px !important;
-        line-height: 26px !important;
-        margin-bottom: 4px !important;
-    }
+  ul > li {
+    height: 28px !important;
+    margin-top: 5px !important;
+    line-height: 26px !important;
+    margin-bottom: 4px !important;
+  }
 }
 .ant-select-selection__rendered,
 .ant-input-number {
-    line-height: 40px !important;
+  line-height: 40px !important;
 }
 
 .ant-select-selection {
-    border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 
 .ant-input,
 .ant-input-number {
-    border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 .no-radius .ant-input {
-    border-radius: unset !important;
+  border-radius: unset !important;
 }
 .input-select .ant-input {
-    border-bottom-right-radius: unset !important;
-    border-top-right-radius: unset !important;
+  border-bottom-right-radius: unset !important;
+  border-top-right-radius: unset !important;
 }
 .input-select .ant-input-group-addon:last-child {
-    border-top-right-radius: 10px !important;
-    border-bottom-right-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 .ant-cascader-picker {
-    border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 
 textarea.ant-input {
-    height: auto !important;
+  height: auto !important;
 }
 /* 全局表单样式 end */
 
@@ -332,410 +332,410 @@ textarea.ant-input {
 
 // 表头滚动条颜色改为白色
 .ant-table-hide-scrollbar::-webkit-scrollbar-track {
-    background-color: #fff;
-    border-radius: unset;
+  background-color: #fff;
+  border-radius: unset;
 }
 // 移入显示body滚动条
 .table,
 .content-rb,
 .custom-modal-h {
-    .ant-table-content:hover {
-        .ant-table-scroll {
-            .ant-table-body {
-                overflow-y: auto !important;
-            }
-            .ant-table-header {
-                overflow-y: hidden !important;
-            }
-        }
+  .ant-table-content:hover {
+    .ant-table-scroll {
+      .ant-table-body {
+        overflow-y: auto !important;
+      }
+      .ant-table-header {
+        overflow-y: hidden !important;
+      }
     }
+  }
 }
 // content 查询条件仅1行 下的tabel设置最小高度和固定表头滚动
 .table,
 .content-rb {
-    .ant-table-content {
-        min-height: calc(100vh - 341px);
-        .ant-table-scroll {
-            // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
-            .ant-table-body {
-                overflow-y: hidden !important;
-                overflow-x: auto !important;
-                max-height: calc(100vh - 382px);
-            }
-            .ant-table-header {
-                overflow-y: hidden !important;
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 341px);
+    .ant-table-scroll {
+      // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
+      .ant-table-body {
+        overflow-y: hidden !important;
+        overflow-x: auto !important;
+        max-height: calc(100vh - 382px);
+      }
+      .ant-table-header {
+        overflow-y: hidden !important;
+      }
     }
+  }
 }
 // 固定表头 y滚动条始终出现
 .table,
 .content-rb {
-    .header-fixedy-table {
-        .ant-table-content {
-            min-height: calc(100vh - 310px);
-            .ant-table-scroll {
-                // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
-                .ant-table-body {
-                    overflow-y: scroll !important;
-                    overflow-x: auto !important;
-                    max-height: calc(100vh - 360px);
-                    height: calc(100vh - 360px);
-                }
-                .ant-table-header {
-                    overflow-y: scroll !important;
-                }
-            }
+  .header-fixedy-table {
+    .ant-table-content {
+      min-height: calc(100vh - 310px);
+      .ant-table-scroll {
+        // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
+        .ant-table-body {
+          overflow-y: scroll !important;
+          overflow-x: auto !important;
+          max-height: calc(100vh - 360px);
+          height: calc(100vh - 360px);
         }
+        .ant-table-header {
+          overflow-y: scroll !important;
+        }
+      }
     }
+  }
 }
 // 固定表头 xy滚动条始终出现
 .table,
 .content-rb {
-    .two-row-header-fixed-table {
-        .ant-table-content {
-            min-height: calc(100vh - 341px);
-            .ant-table-scroll {
-                // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
-                .ant-table-body {
-                    overflow-y: scroll !important;
-                    overflow-x: scroll !important;
-                    max-height: calc(100vh - 405px);
-                }
-                .ant-table-header {
-                    overflow-y: scroll !important;
-                }
-            }
-            .ant-table-fixed-right {
-                .ant-table-body-outer {
-                    .ant-table-body-inner {
-                        max-height: calc(100vh - 405px);
-                    }
-                }
-            }
+  .two-row-header-fixed-table {
+    .ant-table-content {
+      min-height: calc(100vh - 341px);
+      .ant-table-scroll {
+        // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
+        .ant-table-body {
+          overflow-y: scroll !important;
+          overflow-x: scroll !important;
+          max-height: calc(100vh - 405px);
         }
+        .ant-table-header {
+          overflow-y: scroll !important;
+        }
+      }
+      .ant-table-fixed-right {
+        .ant-table-body-outer {
+          .ant-table-body-inner {
+            max-height: calc(100vh - 405px);
+          }
+        }
+      }
     }
+  }
 }
 // two-row-header-table
 .two-row-header-table {
-    .ant-table-content {
-        min-height: calc(100vh - 341px) !important;
-        .ant-table-scroll {
-            .ant-table-body {
-                max-height: calc(100vh - 405px);
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 341px) !important;
+    .ant-table-scroll {
+      .ant-table-body {
+        max-height: calc(100vh - 405px);
+      }
     }
+  }
 }
 // content 查询条件占两行 下的tabel设置最小高度和固定表头滚动
 .index-form-two-row-box {
-    .ant-table-content {
-        min-height: calc(100vh - 486px) !important;
-        .ant-table-scroll {
-            .ant-table-body {
-                max-height: calc(100vh - 527px);
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 486px) !important;
+    .ant-table-scroll {
+      .ant-table-body {
+        max-height: calc(100vh - 527px);
+      }
     }
+  }
 }
 // content 查询条件占0行 有分页 下的tabel设置最小高度和固定表头滚动
 .no-search-table {
-    .ant-table-content {
-        min-height: calc(100vh - 286px) !important;
-        .ant-table-scroll {
-            .ant-table-body {
-                max-height: calc(100vh - 327px);
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 286px) !important;
+    .ant-table-scroll {
+      .ant-table-body {
+        max-height: calc(100vh - 327px);
+      }
     }
+  }
 }
 // 无分页 无查询条件
 .no-search-and-pagination-table {
-    .ant-table-content {
-        min-height: calc(100vh - 240px) !important;
-        .ant-table-scroll {
-            .ant-table-body {
-                max-height: calc(100vh - 280px);
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 240px) !important;
+    .ant-table-scroll {
+      .ant-table-body {
+        max-height: calc(100vh - 280px);
+      }
     }
+  }
 }
 // 无分页 查询条件占1行 下的tabel设置最小高度和固定表头滚动
 .no-pagination-table {
-    .ant-table-content {
-        min-height: calc(100vh - 310px) !important;
-        .ant-table-scroll {
-            .ant-table-body {
-                max-height: calc(100vh - 360px);
-            }
-        }
+  .ant-table-content {
+    min-height: calc(100vh - 310px) !important;
+    .ant-table-scroll {
+      .ant-table-body {
+        max-height: calc(100vh - 360px);
+      }
     }
+  }
 }
 // 固定高度的弹窗 下的tabel设置最小高度和固定表头滚动
 .custom-modal-h {
-    // 无查询条件
-    .no-search-table {
-        .ant-table-content {
-            min-height: 565px !important;
-            .ant-table-scroll {
-                .ant-table-body {
-                    overflow-y: hidden !important;
-                    max-height: 515px;
-                }
-                .ant-table-header {
-                    overflow-y: hidden !important;
-                }
-            }
-        }
-    }
-    // 查询条件占1行
+  // 无查询条件
+  .no-search-table {
     .ant-table-content {
-        min-height: 510px;
-        .ant-table-scroll {
-            .ant-table-body {
-                overflow-y: hidden !important;
-                max-height: 460px;
-            }
-            .ant-table-header {
-                overflow-y: hidden !important;
-            }
+      min-height: 565px !important;
+      .ant-table-scroll {
+        .ant-table-body {
+          overflow-y: hidden !important;
+          max-height: 515px;
         }
+        .ant-table-header {
+          overflow-y: hidden !important;
+        }
+      }
     }
+  }
+  // 查询条件占1行
+  .ant-table-content {
+    min-height: 510px;
+    .ant-table-scroll {
+      .ant-table-body {
+        overflow-y: hidden !important;
+        max-height: 460px;
+      }
+      .ant-table-header {
+        overflow-y: hidden !important;
+      }
+    }
+  }
 }
 // table 无固定表头滚动
 .table-no-scrolly {
-    .ant-table-content {
-        .ant-table-scroll {
-            .ant-table-body {
-                overflow-y: hidden !important;
-            }
-            .ant-table-header {
-                overflow-y: hidden !important;
-            }
-        }
+  .ant-table-content {
+    .ant-table-scroll {
+      .ant-table-body {
+        overflow-y: hidden !important;
+      }
+      .ant-table-header {
+        overflow-y: hidden !important;
+      }
     }
+  }
 }
 
 /* 滚动条 end */
 
 .alarm-row td {
-    color: #ff0037;
+  color: #ff0037;
 }
 .work-state {
-    color: #ff0037;
+  color: #ff0037;
 }
 #app .ant-table-thead > tr > th {
-    background: #fff !important;
-    border-bottom: none !important;
-    font-family: AlibabaPuHuiTi-Medium;
-    padding: 10px 16px !important;
-    text-align: left;
-    .ant-table-column-title {
-        // 全局th ellipsis: true start
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        // 全局th ellipsis: true end
-    }
+  background: #fff !important;
+  border-bottom: none !important;
+  font-family: AlibabaPuHuiTi-Medium;
+  padding: 10px 16px !important;
+  text-align: left;
+  .ant-table-column-title {
+    // 全局th ellipsis: true start
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    // 全局th ellipsis: true end
+  }
 }
 .ant-table-header {
-    background: #fff !important;
+  background: #fff !important;
 }
 .ant-table-tbody > tr > td {
-    // 全局td ellipsis: true start
-    // overflow: hidden;
-    // white-space: nowrap;
-    // text-overflow: ellipsis;
-    // 全局td ellipsis: true end
-    border: none !important;
-    font-family: AlibabaPuHuiTi-Regular;
-    padding: 10px 16px !important;
-    height: 46px;
-    text-align: left;
-    .anticon {
-        font-size: 23px;
-    }
+  // 全局td ellipsis: true start
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  // 全局td ellipsis: true end
+  border: none !important;
+  font-family: AlibabaPuHuiTi-Regular;
+  padding: 10px 16px !important;
+  height: 46px;
+  text-align: left;
+  .anticon {
+    font-size: 23px;
+  }
 }
 
 .ant-table-placeholder {
-    border-top: none !important;
-    border-bottom: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 .ant-table-pagination.ant-pagination {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .small-table {
-    .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
-        background: none;
+  .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
+    background: none;
+  }
+  .ant-table-tbody > tr > td:nth-child(1) > span,
+  .ant-table-thead > tr > th:nth-child(1) > span {
+    margin-right: 10px;
+  }
+  .ant-table-tbody > tr > td:nth-child(2) > span,
+  .ant-table-thead > tr > th:nth-child(2) > span {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .ant-table-thead > tr > th {
+    overflow: hidden;
+    padding: 0 !important;
+    > span {
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #f5f5f7;
+      display: inline-block;
+      margin-bottom: 10px;
     }
-    .ant-table-tbody > tr > td:nth-child(1) > span,
-    .ant-table-thead > tr > th:nth-child(1) > span {
-        margin-right: 10px;
+  }
+  .ant-table-tbody > tr > td {
+    overflow: hidden;
+    padding: 0 !important;
+    > span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      padding: 10px 20px;
+      background-color: #f5f5f7;
+      display: block;
     }
-    .ant-table-tbody > tr > td:nth-child(2) > span,
-    .ant-table-thead > tr > th:nth-child(2) > span {
-        margin-left: 10px;
-        padding-left: 10px;
-    }
-    .ant-table-thead > tr > th {
-        overflow: hidden;
-        padding: 0 !important;
-        > span {
-            width: 100%;
-            padding: 10px 20px;
-            background-color: #f5f5f7;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-    }
-    .ant-table-tbody > tr > td {
-        overflow: hidden;
-        padding: 0 !important;
-        > span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            width: 100%;
-            padding: 10px 20px;
-            background-color: #f5f5f7;
-            display: block;
-        }
-    }
+  }
 }
 /* 调整table end */
 
 /* 调整栅格布局导致的横向滚动条 start */
 .home {
-    .ant-row-flex,
-    .ant-row {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        > div:first-child {
-            padding-left: 0 !important;
-        }
-        > div:last-child {
-            padding-right: 0 !important;
-        }
+  .ant-row-flex,
+  .ant-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    > div:first-child {
+      padding-left: 0 !important;
     }
+    > div:last-child {
+      padding-right: 0 !important;
+    }
+  }
 }
 
 /* 调整栅格布局导致的横向滚动条 end */
 
 /* tree start */
 .tree-title {
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 /* tree end */
 /* tooltip start */
 .code-tooltip .ant-tooltip-inner {
-    background-color: #fff;
+  background-color: #fff;
 }
 .code-tooltip .ant-tooltip-arrow::before {
-    background-color: #fff;
+  background-color: #fff;
 }
 /* tooltip end */
 // 高德地图样式修改 start
 .amap-controls {
-    .amap-zoomcontrol {
-        transform: rotate(90deg);
-        border-radius: 10px;
+  .amap-zoomcontrol {
+    transform: rotate(90deg);
+    border-radius: 10px;
+  }
+  .amap-zoom-touch-plus {
+    > div {
+      color: #0d1722;
     }
-    .amap-zoom-touch-plus {
-        > div {
-            color: #0d1722;
-        }
+  }
+  .amap-zoom-touch-minus {
+    padding-left: 5px;
+    border-radius: 10px;
+    > div {
+      transform: rotate(90deg);
+      color: #0d1722;
     }
-    .amap-zoom-touch-minus {
-        padding-left: 5px;
-        border-radius: 10px;
-        > div {
-            transform: rotate(90deg);
-            color: #0d1722;
-        }
+  }
+  .amap-scalecontrol {
+    .amap-scale-text {
+      font-size: 14px;
+      font-family: PingFangSC, PingFangSC-Regular;
+      color: #808080;
+      width: 84.0397px !important;
     }
-    .amap-scalecontrol {
-        .amap-scale-text {
-            font-size: 14px;
-            font-family: PingFangSC, PingFangSC-Regular;
-            color: #808080;
-            width: 84.0397px !important;
-        }
-        .amap-scale-line {
-            .amap-scale-edgeleft,
-            .amap-scale-middle,
-            .amap-scale-edgeright {
-                background-color: #979797;
-            }
-            .amap-scale-edgeright {
-                left: 77.0397px !important;
-            }
-            .amap-scale-middle {
-                top: 4px;
-                width: 76.0397px !important;
-            }
-        }
+    .amap-scale-line {
+      .amap-scale-edgeleft,
+      .amap-scale-middle,
+      .amap-scale-edgeright {
+        background-color: #979797;
+      }
+      .amap-scale-edgeright {
+        left: 77.0397px !important;
+      }
+      .amap-scale-middle {
+        top: 4px;
+        width: 76.0397px !important;
+      }
     }
+  }
 }
 
 .amap-marker-content {
-    white-space: normal !important;
+  white-space: normal !important;
 }
 
 .amap-logo {
-    display: none !important;
+  display: none !important;
 }
 
 .amap-copyright {
-    display: none !important;
+  display: none !important;
 }
 
 .map-loading {
+  height: 100%;
+  .ant-spin-container {
     height: 100%;
-    .ant-spin-container {
-        height: 100%;
-    }
+  }
 }
 
 .map-icon {
-    width: 20px;
-    height: 20px;
-    background: red;
+  width: 20px;
+  height: 20px;
+  background: red;
 }
 
 .amap-info-content {
-    border-radius: 10px;
-    padding: 12px;
-    .amap-info-close {
-        right: 10px;
-        top: 15px;
-        font-size: 22px;
-        color: #0d1722;
-    }
+  border-radius: 10px;
+  padding: 12px;
+  .amap-info-close {
+    right: 10px;
+    top: 15px;
+    font-size: 22px;
+    color: #0d1722;
+  }
 }
 
 // 高德地图样式修改 end
 
 .content-rb .ant-spin-text {
-    font-size: 16px !important;
+  font-size: 16px !important;
 }
 
 .history-compare .ant-spin-nested-loading > div > .ant-spin {
-    top: 250px !important;
+  top: 250px !important;
 }
 .nowrap {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 /* 树选择 start */
 .tree-select-dropdown {
-    .ant-select-tree-switcher {
-        transform: translateY(-6px);
-    }
+  .ant-select-tree-switcher {
+    transform: translateY(-6px);
+  }
 }
 /* 树选择 end */

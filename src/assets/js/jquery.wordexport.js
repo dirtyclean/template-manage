@@ -1,18 +1,18 @@
 import 'file-saver'
 if (typeof jQuery !== 'undefined' && typeof saveAs !== 'undefined') {
-  ;(function ($) {
-    $.fn.wordExport = function (fileName) {
+  ;(function($) {
+    $.fn.wordExport = function(fileName) {
       fileName = typeof fileName !== 'undefined' ? fileName : 'jQuery-Word-Export'
       const statics = {
         mhtml: {
           top:
-                        'Mime-Version: 1.0\nContent-Base: ' +
-                        location.href +
-                        '\nContent-Type: Multipart/related; boundary="NEXT.ITEM-BOUNDARY";type="text/html"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset="utf-8"\nContent-Location: ' +
-                        location.href +
-                        '\n\n<!DOCTYPE html>\n<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">\n_html_</html>',
+            'Mime-Version: 1.0\nContent-Base: ' +
+            location.href +
+            '\nContent-Type: Multipart/related; boundary="NEXT.ITEM-BOUNDARY";type="text/html"\n\n--NEXT.ITEM-BOUNDARY\nContent-Type: text/html; charset="utf-8"\nContent-Location: ' +
+            location.href +
+            '\n\n<!DOCTYPE html>\n<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40">\n_html_</html>',
           head:
-                        '<head><!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:GrammarState>Clean</w:GrammarState><w:TrackMoves>false</w:TrackMoves><w:TrackFormatting/><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules/><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><m:mathPr><m:mathFont m:val="Cambria Math"/><m:brkBin m:val="before"/><m:brkBinSub m:val="--"/><m:smallFrac m:val="off"/><m:dispDef/><m:lMargin m:val="0"/><m:rMargin m:val="0"/><m:defJc m:val="centerGroup"/><m:wrapIndent m:val="1440"/><m:intLim m:val="subSup"/><m:naryLim m:val="undOvr"/></m:mathPr></w:WordDocument></xml><![endif]-->\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<style>\n_styles_\n</style>\n</head>\n',
+            '<head><!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:GrammarState>Clean</w:GrammarState><w:TrackMoves>false</w:TrackMoves><w:TrackFormatting/><w:ValidateAgainstSchemas/><w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid><w:IgnoreMixedContent>false</w:IgnoreMixedContent><w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText><w:DoNotPromoteQF/><w:LidThemeOther>EN-US</w:LidThemeOther><w:LidThemeAsian>ZH-CN</w:LidThemeAsian><w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript><w:Compatibility><w:BreakWrappedTables/><w:SnapToGridInCell/><w:WrapTextWithPunct/><w:UseAsianBreakRules/><w:DontGrowAutofit/><w:SplitPgBreakAndParaMark/><w:DontVertAlignCellWithSp/><w:DontBreakConstrainedForcedTables/><w:DontVertAlignInTxbx/><w:Word11KerningPairs/><w:CachedColBalance/><w:UseFELayout/></w:Compatibility><w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel><m:mathPr><m:mathFont m:val="Cambria Math"/><m:brkBin m:val="before"/><m:brkBinSub m:val="--"/><m:smallFrac m:val="off"/><m:dispDef/><m:lMargin m:val="0"/><m:rMargin m:val="0"/><m:defJc m:val="centerGroup"/><m:wrapIndent m:val="1440"/><m:intLim m:val="subSup"/><m:naryLim m:val="undOvr"/></m:mathPr></w:WordDocument></xml><![endif]-->\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n<style>\n_styles_\n</style>\n</head>\n',
           body: `<body>
                   <div class="WordSection1">_body_</div>
                   <div class="page-number-wrap">  
@@ -35,7 +35,7 @@ if (typeof jQuery !== 'undefined' && typeof saveAs !== 'undefined') {
       const markup = $(this).clone()
 
       // Remove hidden elements from the output
-      markup.each(function () {
+      markup.each(function() {
         const self = $(this)
         if (self.is(':hidden')) {
           self.remove()
@@ -93,11 +93,10 @@ if (typeof jQuery !== 'undefined' && typeof saveAs !== 'undefined') {
 
       // Aggregate parts of the file together
       const fileContent =
-                statics.mhtml.top.replace(
-                  '_html_',
-                  statics.mhtml.head.replace('_styles_', styles) +
-                        statics.mhtml.body.replace('_body_', markup.html())
-                ) + mhtmlBottom
+        statics.mhtml.top.replace(
+          '_html_',
+          statics.mhtml.head.replace('_styles_', styles) + statics.mhtml.body.replace('_body_', markup.html())
+        ) + mhtmlBottom
 
       // Create a Blob with the file contents
       const blob = new Blob([fileContent], {

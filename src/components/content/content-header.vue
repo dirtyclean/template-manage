@@ -1,15 +1,11 @@
 <template>
-    <!-- 数量超过一个 显示重置按钮 -->
-    <div class="mb24">
-        <div class="title">
-            <filterForm
-                :filterComponentsData="filterComponentsData"
-                :searchParams.sync="tempSearchParams"
-                @search="search"
-            />
-            <slot name="btn"></slot>
-        </div>
+  <!-- 数量超过一个 显示重置按钮 -->
+  <div class="mb24">
+    <div class="title">
+      <filterForm :filterComponentsData="filterComponentsData" :searchParams.sync="tempSearchParams" @search="search" />
+      <slot name="btn"></slot>
     </div>
+  </div>
 </template>
 
 <script>
@@ -19,7 +15,7 @@ export default {
   components: {
     filterForm
   },
-  data () {
+  data() {
     return {
       tempSearchParams: this.searchParams
     }
@@ -35,9 +31,9 @@ export default {
     }
   },
   watch: {},
-  mounted () {},
+  mounted() {},
   methods: {
-    search () {
+    search() {
       this.$emit('update:searchParams', {
         ...this.tempSearchParams
       })

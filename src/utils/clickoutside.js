@@ -2,15 +2,15 @@ const nodeList = []
 const ctx = '@@clickoutsideContext'
 let startClick
 let seed = 0
-const on = (function () {
+const on = (function() {
   if (document.addEventListener) {
-    return function (element, event, handler) {
+    return function(element, event, handler) {
       if (element && event && handler) {
         element.addEventListener(event, handler, false)
       }
     }
   } else {
-    return function (element, event, handler) {
+    return function(element, event, handler) {
       if (element && event && handler) {
         element.attachEvent('on' + event, handler)
       }
@@ -23,19 +23,18 @@ on(document, 'mousedown', e => (startClick = e))
 on(document, 'mouseup', e => {
   nodeList.forEach(node => node[ctx].documentHandler(e, startClick))
 })
-function createDocumentHandler (el, binding, vnode) {
-  return function (mouseup = {}, mousedown = {}) {
+function createDocumentHandler(el, binding, vnode) {
+  return function(mouseup = {}, mousedown = {}) {
     if (
       !vnode ||
-            !vnode.context ||
-            !mouseup.target ||
-            !mousedown.target ||
-            el.contains(mouseup.target) ||
-            el.contains(mousedown.target) ||
-            el === mouseup.target ||
-            (vnode.context.popperElm &&
-                (vnode.context.popperElm.contains(mouseup.target) ||
-                    vnode.context.popperElm.contains(mousedown.target)))
+      !vnode.context ||
+      !mouseup.target ||
+      !mousedown.target ||
+      el.contains(mouseup.target) ||
+      el.contains(mousedown.target) ||
+      el === mouseup.target ||
+      (vnode.context.popperElm &&
+        (vnode.context.popperElm.contains(mouseup.target) || vnode.context.popperElm.contains(mousedown.target)))
     ) {
       return
     }
@@ -57,7 +56,7 @@ function createDocumentHandler (el, binding, vnode) {
  * ```
  */
 export default {
-  bind (el, binding, vnode) {
+  bind(el, binding, vnode) {
     nodeList.push(el)
     const id = seed++
     el[ctx] = {
@@ -68,13 +67,13 @@ export default {
     }
   },
 
-  update (el, binding, vnode) {
+  update(el, binding, vnode) {
     el[ctx].documentHandler = createDocumentHandler(el, binding, vnode)
     el[ctx].methodName = binding.expression
     el[ctx].bindingFn = binding.value
   },
 
-  unbind (el) {
+  unbind(el) {
     const len = nodeList.length
 
     for (let i = 0; i < len; i++) {

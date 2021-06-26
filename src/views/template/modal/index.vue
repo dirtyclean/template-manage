@@ -1,29 +1,29 @@
 <template>
-    <a-form-model
-        :model="form"
-        ref="form"
-        :labelCol="{ span: 4 }"
-        :wrapperCol="{ span: 18 }"
-        :rules="rules"
-        :colon="false"
-        labelAlign="right"
-    >
-        <a-row :gutter="10">
-            <a-col :span="24" class="mb16">
-                <a-form-model-item label="操作人" prop="operator">
-                    <a-input placeholder="请输入操作人" v-model.trim="form.operator" allowClear />
-                </a-form-model-item>
-            </a-col>
-            <a-col :span="24">
-                <a-button type="primary" class="fr" @click="handleOk" :loading="confirmLoading">确定</a-button>
-            </a-col>
-        </a-row>
-    </a-form-model>
+  <a-form-model
+    :model="form"
+    ref="form"
+    :labelCol="{ span: 4 }"
+    :wrapperCol="{ span: 18 }"
+    :rules="rules"
+    :colon="false"
+    labelAlign="right"
+  >
+    <a-row :gutter="10">
+      <a-col :span="24" class="mb16">
+        <a-form-model-item label="操作人" prop="operator">
+          <a-input placeholder="请输入操作人" v-model.trim="form.operator" allowClear />
+        </a-form-model-item>
+      </a-col>
+      <a-col :span="24">
+        <a-button type="primary" class="fr" @click="handleOk" :loading="confirmLoading">确定</a-button>
+      </a-col>
+    </a-row>
+  </a-form-model>
 </template>
 <script>
 import { Button, Input, Row, Col, FormModel } from 'ant-design-vue'
 export default {
-  data () {
+  data() {
     let operator = ''
     const userInfo = this.userInfo
     if (userInfo) {
@@ -59,15 +59,15 @@ export default {
       type: [Object]
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.$refs.form && this.$refs.form.resetFields()
   },
-  mounted () {
+  mounted() {
     this.beforeShowModal()
   },
   methods: {
-    beforeShowModal () {},
-    async handleOk () {
+    beforeShowModal() {},
+    async handleOk() {
       this.confirmLoading = true
       this.$refs.form.validate(async valid => {
         console.log(valid, 'valid')

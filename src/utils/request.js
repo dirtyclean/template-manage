@@ -40,13 +40,13 @@ service.interceptors.response.use(
   }
 )
 
-const createNotification = function (msg) {
+const createNotification = function(msg) {
   console.log(hasNotification, 'hasNotification')
   if (!hasNotification) {
     notification.open({
       message: '系统通知',
       description: msg || '登陆状态过期，请重新登陆',
-      onClose () {
+      onClose() {
         hasNotification = false
       }
     })
@@ -59,7 +59,7 @@ const notification401 = msg => {
     router.push('/login')
   })
 }
-function whenErr (url, resolve, reject, error = '') {
+function whenErr(url, resolve, reject, error = '') {
   console.log(error)
   const { status, data } = error
   const isProduction = process.env.NODE_ENV === 'production'
@@ -79,13 +79,13 @@ function whenErr (url, resolve, reject, error = '') {
   } else if (data.type || data.msg) {
     // 后端封装错误
     isProduction &&
-            message.error(h => {
-              return <span domPropsInnerHTML={data.msg || '服务器响应出错'}></span>
-            })
+      message.error(h => {
+        return <span domPropsInnerHTML={data.msg || '服务器响应出错'}></span>
+      })
     !isProduction &&
-            message.error(h => {
-              return <span domPropsInnerHTML={data.msg || data.type}></span>
-            })
+      message.error(h => {
+        return <span domPropsInnerHTML={data.msg || data.type}></span>
+      })
   } else if (error.data instanceof ArrayBuffer) {
     message.error('服务器响应出错')
   } else {
@@ -96,7 +96,7 @@ function whenErr (url, resolve, reject, error = '') {
   return reject(error)
 }
 
-function get (url, data, responseType = '', otherConfig = {}) {
+function get(url, data, responseType = '', otherConfig = {}) {
   return new Promise((resolve, reject) => {
     service({
       method: 'get',
@@ -114,7 +114,7 @@ function get (url, data, responseType = '', otherConfig = {}) {
   })
 }
 
-function put (url, data, isJson = false, otherConfig = {}) {
+function put(url, data, isJson = false, otherConfig = {}) {
   return new Promise((resolve, reject) => {
     service({
       method: 'put',
@@ -131,7 +131,7 @@ function put (url, data, isJson = false, otherConfig = {}) {
   })
 }
 
-function del (url, data, isJson = false) {
+function del(url, data, isJson = false) {
   return new Promise((resolve, reject) => {
     service({
       method: 'delete',
@@ -148,7 +148,7 @@ function del (url, data, isJson = false) {
   })
 }
 
-function post (url, data, isJson = false, otherConfig = {}) {
+function post(url, data, isJson = false, otherConfig = {}) {
   return new Promise((resolve, reject) => {
     service({
       method: 'post',

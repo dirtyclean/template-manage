@@ -1,53 +1,53 @@
 <template>
-    <a-modal
-        :title="modalTitle"
-        :visible="isShowModal"
-        width="60%"
-        :footer="null"
-        dialogClass="custom-modal-h"
-        @cancel="handleCancel"
-        :maskClosable="false"
-        :bodyStyle="
-            fileType !== 'pdf'
-                ? {
-                      display: 'flex', // 初始水平垂直居中
-                      'justify-content': 'center',
-                      'align-items': 'center',
-                  }
-                : null
-        "
-    >
-        <a-spin :spinning="modalLoading" v-if="modalLoading" />
-        <template v-else>
-            <iframe v-if="fileType === 'pdf'" :src="fileSrc" frameborder="0" width="100%" height="98%"></iframe>
-            <template v-else>
-                <img
-                    id="previewImg"
-                    class="previewImg"
-                    :src="fileSrc"
-                    alt=""
-                    ref="img"
-                    :style="`transform: scale(${this.multiples}) rotateZ(${this.deg}deg);`"
-                    v-drag
-                />
-                <div class="look-image-footer">
-                    <div>
-                        <a-icon type="zoom-in" @click="magnify" class="icon" />
-                        <a-icon type="zoom-out" @click="shrink" class="icon" />
-                        <a-icon type="fullscreen" @click="fullscreen" class="icon" v-if="!isFullscreen" />
-                        <a-icon type="fullscreen-exit" @click="fullscreen" class="icon" v-if="isFullscreen" />
-                        <a-icon type="redo" @click="rotate" class="icon" />
-                    </div>
-                </div>
-            </template>
-        </template>
-    </a-modal>
+  <a-modal
+    :title="modalTitle"
+    :visible="isShowModal"
+    width="60%"
+    :footer="null"
+    dialogClass="custom-modal-h"
+    @cancel="handleCancel"
+    :maskClosable="false"
+    :bodyStyle="
+      fileType !== 'pdf'
+        ? {
+            display: 'flex', // 初始水平垂直居中
+            'justify-content': 'center',
+            'align-items': 'center'
+          }
+        : null
+    "
+  >
+    <a-spin :spinning="modalLoading" v-if="modalLoading" />
+    <template v-else>
+      <iframe v-if="fileType === 'pdf'" :src="fileSrc" frameborder="0" width="100%" height="98%"></iframe>
+      <template v-else>
+        <img
+          id="previewImg"
+          class="previewImg"
+          :src="fileSrc"
+          alt=""
+          ref="img"
+          :style="`transform: scale(${this.multiples}) rotateZ(${this.deg}deg);`"
+          v-drag
+        />
+        <div class="look-image-footer">
+          <div>
+            <a-icon type="zoom-in" @click="magnify" class="icon" />
+            <a-icon type="zoom-out" @click="shrink" class="icon" />
+            <a-icon type="fullscreen" @click="fullscreen" class="icon" v-if="!isFullscreen" />
+            <a-icon type="fullscreen-exit" @click="fullscreen" class="icon" v-if="isFullscreen" />
+            <a-icon type="redo" @click="rotate" class="icon" />
+          </div>
+        </div>
+      </template>
+    </template>
+  </a-modal>
 </template>
 <script>
 import { Modal, Icon, Spin } from 'ant-design-vue'
 export default {
   name: 'preview',
-  data () {
+  data() {
     return {
       multiples: 1, // 放大或者缩小
       deg: 0, // 旋转的角度
@@ -62,15 +62,15 @@ export default {
         const oDiv = el // 当前元素
         // 禁止选择网页上的文字
         // 比如在很多地方当用户双击时，一些元素会变成蓝色（选中状态），而当我们要避免这种情况时就可以使用该事件。
-        document.onselectstart = function () {
+        document.onselectstart = function() {
           return false
         }
-        oDiv.onmousedown = function (e) {
+        oDiv.onmousedown = function(e) {
           console.log('onmousedown')
           // 鼠标按下，计算当前元素距离可视区的距离
           const disX = e.clientX - oDiv.offsetLeft
           const disY = e.clientY - oDiv.offsetTop
-          document.onmousemove = function (e) {
+          document.onmousemove = function(e) {
             // 通过事件委托，计算移动的距离
             const l = e.clientX - disX
             const t = e.clientY - disY
@@ -80,7 +80,7 @@ export default {
             // 初始化居中，父元素设置了flex，导致拖曳时定位有偏差，这里还原
             document.getElementsByClassName('ant-modal-body')[0].style.display = 'block'
           }
-          document.onmouseup = function (e) {
+          document.onmouseup = function(e) {
             console.log('onmouseup')
             document.onmousemove = null
             document.onmouseup = null
@@ -122,7 +122,7 @@ export default {
   watch: {
     isShowModal: {
       immediate: true,
-      handler: function (isShowModal) {
+      handler: function(isShowModal) {
         if (isShowModal) {
           this.downloadPromise()
         } else {
@@ -131,15 +131,15 @@ export default {
       }
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
     document.removeEventListener('mousewheel', this.handleScroll)
   },
-  mounted () {
+  mounted() {
     document.addEventListener('mousewheel', this.handleScroll)
   },
   methods: {
-    handleScroll (e) {
+    handleScroll(e) {
       console.log(e, 'e')
       if (e.target.className !== 'previewImg') return
       const direction = e.deltaY > 0 ? 'down' : 'up' // deltaY为正则滚轮向下，为负滚轮向上
@@ -149,12 +149,12 @@ export default {
         this.magnify()
       }
     },
-    reset () {
-      document.onselectstart = function () {
+    reset() {
+      document.onselectstart = function() {
         return true
       }
     },
-    downloadPromise () {
+    downloadPromise() {
       const { fileType, fileId, fileName } = this
       this.modalLoading = true
       this.$apiReq
@@ -175,7 +175,7 @@ export default {
         })
     },
     // 全屏/原始
-    fullscreen () {
+    fullscreen() {
       this.isFullscreen = !this.isFullscreen
       const img = document.getElementById('previewImg')
       const body = document.getElementsByClassName('ant-modal-body')[0]
@@ -202,27 +202,27 @@ export default {
       body.style.display = 'flex'
     },
     // 放大
-    magnify () {
+    magnify() {
       if (this.multiples >= 10) {
         return
       }
       this.multiples += 0.25
     },
     // 缩小
-    shrink () {
+    shrink() {
       if (this.multiples <= 0.25) {
         return
       }
       this.multiples -= 0.25
     },
     // 旋转
-    rotate () {
+    rotate() {
       this.deg += 90
       if (this.deg >= 360) {
         this.deg = 0
       }
     },
-    handleCancel () {
+    handleCancel() {
       this.$emit('update:isShowModal', false)
     }
   }
@@ -230,37 +230,37 @@ export default {
 </script>
 <style lang="scss" scoped>
 .icon {
-    font-size: 30px;
-    margin: 0 10px;
+  font-size: 30px;
+  margin: 0 10px;
 }
 .previewImg {
-    position: relative; // relative导致拖曳时定位有偏差（优化为absolute时，父元素要设置relative,不然会拖出去）
-    cursor: move;
-    max-width: 100%;
-    max-height: 100%;
+  position: relative; // relative导致拖曳时定位有偏差（优化为absolute时，父元素要设置relative,不然会拖出去）
+  cursor: move;
+  max-width: 100%;
+  max-height: 100%;
 }
 .look-image-footer {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 282px;
-    height: 44px;
-    padding: 0 23px;
-    background-color: #606266;
-    border-color: #fff;
-    border-radius: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.8;
-    cursor: pointer;
-    color: #fff;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 282px;
+  height: 44px;
+  padding: 0 23px;
+  background-color: #606266;
+  border-color: #fff;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  cursor: pointer;
+  color: #fff;
 }
 /deep/ .ant-spin {
-    height: 400px;
-    width: 100%;
-    text-align: center;
-    line-height: 400px;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  line-height: 400px;
 }
 </style>

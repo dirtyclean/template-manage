@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import { cloneDeep, getItemById } from '@/utils/methods'
 import { getStorage } from '@/utils/storage/localStorage'
 const originalPush = Router.prototype.push
-Router.prototype.push = function push (location) {
+Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 Vue.use(Router)
@@ -52,7 +52,7 @@ const createRouter = () => {
   })
 }
 const router = createRouter()
-const resetRouter = function () {
+const resetRouter = function() {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher
 }
