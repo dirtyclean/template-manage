@@ -1,5 +1,5 @@
 <template>
-  <div class="table">
+  <div class="content-rb">
     <a-table
       v-bind="{
         ...antdOtherApi
@@ -60,7 +60,7 @@ export default {
       type: [Object]
     }
   },
-  data () {
+  data() {
     return {
       tableData: [],
       tableLoading: false,
@@ -68,11 +68,11 @@ export default {
     }
   },
   computed: {},
-  mounted () {
+  mounted() {
     this.renderTable()
   },
   methods: {
-    handleTableChange (pagination) {
+    handleTableChange(pagination) {
       console.log('handleTableChange')
       this.paging = {
         ...pagination
@@ -81,7 +81,7 @@ export default {
         this.renderTable()
       })
     },
-    del (successMessage = '删除成功') {
+    del(successMessage = '删除成功') {
       console.log('del')
       this.asyncDelApi().then(() => {
         this.$message.success(successMessage)
@@ -94,7 +94,7 @@ export default {
         this.renderTable()
       })
     },
-    async renderTable () {
+    async renderTable() {
       console.log('renderData', this.pagination)
       this.tableLoading = true
       this.getAsyncTableData({

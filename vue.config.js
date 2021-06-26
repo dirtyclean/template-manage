@@ -134,7 +134,9 @@ const vueConfig = {
       },
       less: {
         lessOptions: {
-          modifyVars: {},
+          modifyVars: {
+            'font-family': 'AlibabaPuHuiTi-Regular'
+          },
           javascriptEnabled: true
         }
       }

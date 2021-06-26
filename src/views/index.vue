@@ -49,7 +49,7 @@ export default {
     breadcrumb,
     AModal: Modal
   },
-  data () {
+  data() {
     return {
       dialogParams: {
         dialogTitle: '框架弹窗',
@@ -61,21 +61,21 @@ export default {
       }
     }
   },
-  mounted () {
+  mounted() {
     this.REG_ON_EVT(this._uid, this.EVT_ENUM.FW_SHOW_DIALOG, this.openDialogInFW)
     this.REG_ON_EVT(this._uid, this.EVT_ENUM.FW_CLOSE_DIALOG, this.closeDialogInFW)
   },
-  beforeDestroy () {
+  beforeDestroy() {
     console.log('beforeDestroy', this)
     this.REG_OFF_EVT(this._uid)
   },
   methods: {
-    closeDialogInFW () {
+    closeDialogInFW() {
       console.log('closeDialogInFW')
       this.dialogParams.dialogComponent = null
       this.dialogParams.dialogVisible = false
     },
-    openDialogInFW ({ title, component, params }) {
+    openDialogInFW({ title, component, params }) {
       console.log('openDialogInFW')
       this.dialogParams.dialogTitle = title
       this.dialogParams.dialogParams = params
@@ -184,8 +184,6 @@ export default {
 }
 
 .content-layout {
-  min-height: 280px;
-  overflow: auto;
   padding-left: 30px;
   display: flex;
   flex-direction: column;
@@ -200,7 +198,6 @@ export default {
   .header-layout {
     background: #fff;
     padding: 0 50px 0 34px;
-    height: 70px;
   }
 }
 
