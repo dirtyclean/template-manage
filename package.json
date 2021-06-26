@@ -52,10 +52,12 @@
   "lint-staged": {
     "*.{js}": [
       "prettier --config .prettierrc --write",
+      "eslint --fix",
       "git add"
     ],
     "src/**/*.{js,vue,scss,css}": [
       "prettier --config .prettierrc --write",
+      "eslint --fix",
       "git add"
     ]
   }
