@@ -230,37 +230,37 @@ export default {
 </script>
 <style lang="scss" scoped>
 .icon {
-  font-size: 30px;
   margin: 0 10px;
+  font-size: 30px;
 }
 .preview-img {
-  cursor: move;
-  max-height: 100%;
-  max-width: 100%;
   position: relative; // relative导致拖曳时定位有偏差（优化为absolute时，父元素要设置relative,不然会拖出去）
+  max-width: 100%;
+  max-height: 100%;
+  cursor: move;
 }
 .look-image-footer {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  width: 282px;
+  height: 44px;
+  padding: 0 23px;
+  color: #fff;
   background-color: #606266;
   border-color: #fff;
   border-radius: 22px;
-  bottom: 50px;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  height: 44px;
-  justify-content: center;
-  left: 50%;
-  opacity: 0.8;
-  padding: 0 23px;
-  position: absolute;
   transform: translateX(-50%);
-  width: 282px;
+  cursor: pointer;
+  opacity: 0.8;
 }
 /deep/ .ant-spin {
+  width: 100%;
   height: 400px;
   line-height: 400px;
   text-align: center;
-  width: 100%;
 }
 </style>

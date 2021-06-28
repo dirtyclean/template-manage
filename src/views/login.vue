@@ -49,7 +49,7 @@
         <!-- 智能验证 start -->
         <verify @loaded="startVerify" />
         <a-form-item>
-          <div id="sc" style="margin:0;width:100%;"></div>
+          <div id="sc" style="width:100%;margin:0;"></div>
         </a-form-item>
         <!-- 智能验证 end -->
         <a-form-item>
@@ -288,8 +288,8 @@ export default {
 }
 /deep/.sm-btn-success .rect-bottom::after,
 /deep/.sm-btn-fail .rect-bottom::after {
-  height: 42px;
   width: 100%;
+  height: 42px;
 }
 /deep/.sm-btn-success .rect-top::before,
 /deep/.sm-btn-fail .rect-top::before {
@@ -303,56 +303,56 @@ export default {
   width: calc(100% + 1px) !important;
 }
 .logo-title {
-  color: #162146;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
-  font-size: 28px;
-  font-weight: 800;
   height: 22px;
-  letter-spacing: 3px;
+  color: #162146;
+  font-weight: 800;
+  font-size: 28px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
   line-height: 22px;
+  letter-spacing: 3px;
   text-align: left;
   span {
     font-family: AlibabaPuHuiTi-Medium, sans-serif;
   }
 }
 .sub-title {
-  color: #162146;
-  font-size: 20px;
-  font-weight: 600;
+  width: 200%;
   height: 9px;
-  letter-spacing: 0;
+  color: #162146;
+  font-weight: 600;
+  font-size: 20px;
   line-height: 9px;
+  letter-spacing: 0;
   text-align: left;
   transform: scale(0.5) translate(-50%, 0);
-  width: 200%;
 }
 
 .beian {
-  bottom: 18%;
-  color: #1e407f;
-  font-size: 16px;
-  font-weight: 400;
-  height: 16px;
-  line-height: 16px;
   position: absolute;
-  text-align: center;
+  bottom: 18%;
   width: 100%;
+  height: 16px;
+  color: #1e407f;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
 }
 
 .content {
-  background: url('../assets/img/png/login-bg.png') no-repeat bottom / contain #f5f7fd;
   position: relative;
+  background: url('../assets/img/png/login-bg.png') no-repeat bottom / contain #f5f7fd;
 }
 
 .main {
-  background: white;
-  border-radius: 30px;
-  left: 50%;
-  padding: 4% 100px;
   position: absolute;
   top: 45%;
-  transform: translate(-50%, -50%);
+  left: 50%;
   width: 700px;
+  padding: 4% 100px;
+  background: white;
+  border-radius: 30px;
+  transform: translate(-50%, -50%);
   .logo {
     display: block;
     margin: auto auto 40px;
@@ -365,10 +365,10 @@ export default {
   }
 
   button .login-btn {
-    font-size: 16px;
+    width: 100%;
     height: 40px;
     padding: 0 15px;
-    width: 100%;
+    font-size: 16px;
   }
 }
 </style>

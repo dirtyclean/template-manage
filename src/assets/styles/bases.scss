@@ -1,7 +1,7 @@
 .p-center {
-  left: 50%;
   position: absolute;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 $unit: 1px;
@@ -56,8 +56,8 @@ $unit: 1px;
 .ellipsis-one {
   display: inline-block;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
   word-break: break-all;
 }
 .tljustify {

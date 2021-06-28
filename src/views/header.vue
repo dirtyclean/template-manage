@@ -124,13 +124,13 @@ export default {
 
 <style scoped lang="scss">
 .logo-title {
-  color: #162146;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
   height: 22px;
-  letter-spacing: 3px;
+  color: #162146;
+  font-weight: 800;
+  font-size: 18px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
   line-height: 22px;
+  letter-spacing: 3px;
   text-align: left;
   span {
     font-family: AlibabaPuHuiTi-Medium, sans-serif;
@@ -138,51 +138,51 @@ export default {
 }
 
 .sub-title {
-  color: #162146;
-  font-size: 14px;
-  font-weight: 600;
   height: 9px;
-  letter-spacing: 0;
+  color: #162146;
+  font-weight: 600;
+  font-size: 14px;
   line-height: 9px;
+  letter-spacing: 0;
   text-align: left;
   transform: scale(0.5) translate(-50%, 0);
 }
 
 .admin-name {
-  color: #0d1722;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
   height: 14px;
-  letter-spacing: 1px;
+  color: #0d1722;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
   line-height: 14px;
+  letter-spacing: 1px;
   text-align: left;
 }
 
 .avatar {
+  width: 41px;
+  height: 43px;
   background-color: #8490b5;
   background-image: url('../assets/img/png/avatar.png');
   border-radius: 10px;
-  height: 43px;
-  width: 41px;
 }
 
 .drop-down-link {
   color: #0d1722;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
-  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 1px;
+  font-size: 14px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
   line-height: 14px;
+  letter-spacing: 1px;
   text-align: left;
 }
 .menu-item-content {
-  align-items: center;
   display: flex;
+  align-items: center;
   margin: 10px 15px;
   .menu-item-icon {
-    font-size: 20px;
     margin-right: 20px;
+    font-size: 20px;
   }
 }
 </style>

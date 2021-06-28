@@ -36,20 +36,20 @@ export default {
 </script>
 <style scoped>
 .error-page {
-  align-items: center;
-  background: #f3f3f3;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 100%;
+  height: 100%;
+  background: #f3f3f3;
 }
 
 .error-code {
   color: #2d8cf0;
-  font-size: 250px;
   font-weight: bolder;
+  font-size: 250px;
   line-height: 1;
 }
 

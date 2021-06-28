@@ -5,7 +5,7 @@
         <self-header></self-header>
       </a-layout-header>
       <a-layout style="padding:25px">
-        <a-layout-sider :trigger="null" collapsible class="custom-sider" style="background: #fff;min-width:13%;">
+        <a-layout-sider :trigger="null" collapsible class="custom-sider" style="min-width:13%;background: #fff;">
           <self-slider></self-slider>
         </a-layout-sider>
         <a-layout>
@@ -108,18 +108,18 @@ export default {
 }
 
 .layout {
-  height: 100%;
   width: 100%;
+  height: 100%;
   .header-layout {
-    background: #fff;
     padding: 0 50px 0 34px;
+    background: #fff;
   }
 }
 
 #components-layout-demo-custom-trigger .trigger {
-  cursor: pointer;
-  font-size: 18px;
   padding: 10px 30px 0;
+  font-size: 18px;
+  cursor: pointer;
   transition: color 0.3s;
 }
 
@@ -128,8 +128,8 @@ export default {
 }
 
 #components-layout-demo-custom-trigger .logo {
-  background: rgba(255, 255, 255, 0.2);
   height: 32px;
   margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
 }
 </style>
