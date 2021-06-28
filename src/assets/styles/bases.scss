@@ -1,68 +1,7 @@
-.vBox {
-  display: flex;
-  flex-direction: column;
-}
-
-.hBox {
-  display: flex;
-}
-
-.vh-grow {
-  flex-grow: 1;
-}
-
-.vh-content-center {
-  justify-content: center;
-}
-
-.vh-content-between {
-  justify-content: space-between;
-}
-
-.vh-content-around {
-  justify-content: space-around;
-}
-
-.vh-content-start {
-  justify-content: flex-start;
-}
-
-.vh-content-end {
-  justify-content: flex-end;
-}
-
-.vh-items-center {
-  align-items: center;
-}
-
-.vh-items-start {
-  align-items: flex-start;
-}
-
-.vh-items-end {
-  align-items: flex-end;
-}
-.t-center {
-  text-align: center;
-}
-
-.center {
-  @extend .hBox, .vh-content-center, .vh-items-center;
-}
-
-.h-between-center {
-  @extend .hBox, .vh-content-between, .vh-items-center;
-}
-.v-between-center {
-  @extend .vBox, .vh-content-between, .vh-items-center;
-}
-.v-start-center {
-  @extend .vBox, .vh-content-start, .vh-items-center;
-}
 .p-center {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
 $unit: 1px;
@@ -110,16 +49,16 @@ $unit: 1px;
 }
 
 .scroll-y {
-  overflow-y: auto;
   height: 100%;
+  overflow-y: auto;
 }
 
 .ellipsis-one {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  word-break: break-all;
   display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
 }
 .tljustify {
   text-align-last: justify;
@@ -132,4 +71,7 @@ $unit: 1px;
 }
 .warning-color {
   color: #faad14;
+}
+.nowrap {
+  white-space: nowrap;
 }

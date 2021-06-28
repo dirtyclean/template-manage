@@ -124,62 +124,61 @@ export default {
 
 <style scoped lang="scss">
 .logo-title {
-  height: 22px;
-  font-size: 18px;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy;
-  font-weight: 800;
-  text-align: left;
   color: #162146;
-  line-height: 22px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  height: 22px;
   letter-spacing: 3px;
+  line-height: 22px;
+  text-align: left;
   span {
-    font-family: AlibabaPuHuiTi-Medium;
+    font-family: AlibabaPuHuiTi-Medium, sans-serif;
   }
 }
 
 .sub-title {
-  height: 9px;
-  font-size: 14px;
-  font-family: PingFangSC, PingFangSC-Semibold;
-  font-weight: 600;
-  text-align: left;
   color: #162146;
+  font-size: 14px;
+  font-weight: 600;
+  height: 9px;
+  letter-spacing: 0;
   line-height: 9px;
-  letter-spacing: 0px;
+  text-align: left;
   transform: scale(0.5) translate(-50%, 0);
 }
 
 .admin-name {
-  height: 14px;
-  font-size: 14px;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium;
-  font-weight: 500;
-  text-align: left;
   color: #0d1722;
-  line-height: 14px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 14px;
   letter-spacing: 1px;
+  line-height: 14px;
+  text-align: left;
 }
 
 .avatar {
-  width: 41px;
-  height: 43px;
-  border-radius: 10px;
   background-color: #8490b5;
-  background-image: url(../assets/img/png/avatar.png);
+  background-image: url('../assets/img/png/avatar.png');
+  border-radius: 10px;
+  height: 43px;
+  width: 41px;
 }
 
 .drop-down-link {
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium;
+  color: #0d1722;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Medium, sans-serif;
   font-size: 14px;
   font-weight: 500;
-  text-align: left;
-  color: #0d1722;
-  line-height: 14px;
   letter-spacing: 1px;
+  line-height: 14px;
+  text-align: left;
 }
 .menu-item-content {
-  display: flex;
   align-items: center;
+  display: flex;
   margin: 10px 15px;
   .menu-item-icon {
     font-size: 20px;

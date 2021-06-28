@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "build:test": "vue-cli-service build --mode test",
     "lint": "vue-cli-service lint",
+    "lint-css": "stylelint --fix src/**/*.{css,less,scss,vue}",
     "postinstall": "patch-package",
     "prettier": "prettier --write *.{js} src/**/*.{js,vue,scss,css}"
   },
@@ -22,7 +23,6 @@
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "patch-package": "^6.2.2",
-    "prettier": "^1.19.1",
     "sass-loader": "^10.1.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.11",
@@ -39,11 +39,19 @@
     "@vue/eslint-config-standard": "^5.1.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^1.19.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
@@ -60,8 +68,9 @@
       "eslint --fix",
       "git add"
     ],
-    "src/**/*.{scss,css}": [
+    "src/**/*.{vue,scss,css}": [
       "prettier --config .prettierrc --write",
+      "stylelint --fix",
       "git add"
     ]
   }

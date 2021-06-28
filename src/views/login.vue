@@ -5,7 +5,7 @@
         <img src="../assets/img/png/logo.png" height="62" width="50" />
         <div class="ml20 mt20 psr tljustify">
           <div class="logo-title mb15">
-            XXXX系统
+            XXX系统
           </div>
           <div class="sub-title"></div>
         </div>
@@ -70,7 +70,7 @@
             size="large"
             type="primary"
             htmlType="submit"
-            class="login-button"
+            class="login-btn"
             :loading="state.loginBtn"
             :disabled="state.loginBtn"
           >
@@ -273,86 +273,86 @@ export default {
 /deep/.sm-pop {
   border: none !important;
 }
+/* stylelint-disable-next-line */
 /deep/.nc-container .nc_wrapper {
   width: 96% !important;
 }
 /deep/.rect-top {
   height: 42px !important;
 }
-/deep/.sm-btn-fail .rect-bottom:after {
+/deep/.sm-btn-fail .rect-bottom::after {
   border-bottom: 1px solid #f55742;
 }
-/deep/.sm-btn-success .rect-bottom:after {
+/deep/.sm-btn-success .rect-bottom::after {
   border-bottom: 1px solid #00de76;
 }
-/deep/.sm-btn-success .rect-bottom:after,
-/deep/.sm-btn-fail .rect-bottom:after {
+/deep/.sm-btn-success .rect-bottom::after,
+/deep/.sm-btn-fail .rect-bottom::after {
   height: 42px;
   width: 100%;
 }
-/deep/.sm-btn-success .rect-top:before,
-/deep/.sm-btn-fail .rect-top:before {
+/deep/.sm-btn-success .rect-top::before,
+/deep/.sm-btn-fail .rect-top::before {
   height: 100%;
 }
-/deep/.sm-btn-success .rect-top:after,
-/deep/.sm-btn-fail .rect-top:after {
+/deep/.sm-btn-success .rect-top::after,
+/deep/.sm-btn-fail .rect-top::after {
   right: unset;
 }
 /deep/#rectMask {
   width: calc(100% + 1px) !important;
 }
 .logo-title {
-  height: 22px;
-  font-size: 28px;
-  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy;
-  font-weight: 800;
-  text-align: left;
   color: #162146;
-  line-height: 22px;
+  font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Heavy, sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  height: 22px;
   letter-spacing: 3px;
+  line-height: 22px;
+  text-align: left;
   span {
-    font-family: AlibabaPuHuiTi-Medium;
+    font-family: AlibabaPuHuiTi-Medium, sans-serif;
   }
 }
 .sub-title {
-  height: 9px;
-  width: 200%;
-  font-size: 20px;
-  font-family: PingFangSC, PingFangSC-Semibold;
-  font-weight: 600;
-  text-align: left;
   color: #162146;
+  font-size: 20px;
+  font-weight: 600;
+  height: 9px;
+  letter-spacing: 0;
   line-height: 9px;
-  letter-spacing: 0px;
+  text-align: left;
   transform: scale(0.5) translate(-50%, 0);
+  width: 200%;
 }
 
 .beian {
-  position: absolute;
   bottom: 18%;
-  width: 100%;
-  height: 16px;
+  color: #1e407f;
   font-size: 16px;
   font-weight: 400;
-  text-align: center;
-  color: #1e407f;
+  height: 16px;
   line-height: 16px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 .content {
-  position: relative;
   background: url('../assets/img/png/login-bg.png') no-repeat bottom / contain #f5f7fd;
+  position: relative;
 }
 
 .main {
-  width: 700px;
-  background: #ffffff;
+  background: white;
   border-radius: 30px;
-  position: absolute;
-  top: 45%;
   left: 50%;
   padding: 4% 100px;
+  position: absolute;
+  top: 45%;
   transform: translate(-50%, -50%);
+  width: 700px;
   .logo {
     display: block;
     margin: auto auto 40px;
@@ -364,10 +364,10 @@ export default {
     font-size: 14px;
   }
 
-  button.login-button {
-    padding: 0 15px;
+  button .login-btn {
     font-size: 16px;
     height: 40px;
+    padding: 0 15px;
     width: 100%;
   }
 }

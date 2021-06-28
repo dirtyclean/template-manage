@@ -12,10 +12,10 @@ $text-color: #2b3b45; // 主文本色
 $color-red: #ff0037; //主红色
 $color-yellow: #ffb900; //主黄色
 $color-green: #5bc43a; //主绿色
-$color-blue: #00ccdd;
+$color-blue: #0cd;
 
-@mixin font_color($color) {
-  /*通过该函数设置字体颜色，后期方便统一管理；*/
+@mixin font-color($color) {
+  /* 通过该函数设置字体颜色，后期方便统一管理； */
   color: $color;
   [data-theme='theme1'] & {
     color: $font-color-theme1;
@@ -28,8 +28,8 @@ $color-blue: #00ccdd;
   }
 }
 
-@mixin bg_color($color) {
-  /*通过该函数设置主题颜色，后期方便统一管理；*/
+@mixin bg-color($color) {
+  /* 通过该函数设置主题颜色，后期方便统一管理； */
   background-color: $color !important;
   [data-theme='theme1'] & {
     background-color: $background-color-theme1 !important;

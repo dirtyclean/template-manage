@@ -32,36 +32,35 @@ export default {
 
 <style lang="scss" scoped>
 .breadcrumb {
-  height: 60px;
-  padding: 18px;
-  color: #00152a;
-  font-size: 18px;
-  display: flex;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0px 0px 6px 0px #e0e0e0;
-  margin: 0 0 20px 1px;
+  background-color: white;
   border-radius: 15px;
+  box-shadow: 0 0 6px 0 #e0e0e0;
+  color: #00152a;
+  display: flex;
+  font-size: 18px;
+  height: 60px;
+  margin: 0 0 20px 1px;
+  padding: 18px;
   button {
     font-size: 14px;
   }
 
   &-title {
-    margin-left: 26px;
     line-height: 17px;
+    margin-left: 26px;
   }
   &-description {
-    width: 363px;
-    margin-left: 20px;
     font-size: 12px;
     font-weight: 300;
-    text-align: left;
+    letter-spacing: 0;
     line-height: 17px;
-    letter-spacing: 0px;
+    margin-left: 20px;
     overflow: hidden;
+    text-align: left;
     text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
     white-space: nowrap;
+    width: 363px;
   }
 }
 </style>

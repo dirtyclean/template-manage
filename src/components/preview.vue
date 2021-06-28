@@ -23,7 +23,7 @@
       <template v-else>
         <img
           id="previewImg"
-          class="previewImg"
+          class="preview-img"
           :src="fileSrc"
           alt=""
           ref="img"
@@ -233,34 +233,34 @@ export default {
   font-size: 30px;
   margin: 0 10px;
 }
-.previewImg {
-  position: relative; // relative导致拖曳时定位有偏差（优化为absolute时，父元素要设置relative,不然会拖出去）
+.preview-img {
   cursor: move;
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
+  position: relative; // relative导致拖曳时定位有偏差（优化为absolute时，父元素要设置relative,不然会拖出去）
 }
 .look-image-footer {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 282px;
-  height: 44px;
-  padding: 0 23px;
+  align-items: center;
   background-color: #606266;
   border-color: #fff;
   border-radius: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.8;
-  cursor: pointer;
+  bottom: 50px;
   color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 44px;
+  justify-content: center;
+  left: 50%;
+  opacity: 0.8;
+  padding: 0 23px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 282px;
 }
 /deep/ .ant-spin {
   height: 400px;
-  width: 100%;
-  text-align: center;
   line-height: 400px;
+  text-align: center;
+  width: 100%;
 }
 </style>

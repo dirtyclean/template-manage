@@ -14,94 +14,94 @@ html {
 }
 @font-face {
   font-family: 'AlibabaPuHuiTi-Regular';
-  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Regular.ttf');
   font-weight: 400;
+  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Regular.ttf');
 }
 
 @font-face {
   font-family: 'AlibabaPuHuiTi-Medium';
-  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Medium.ttf');
   font-weight: 500;
+  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Medium.ttf');
 }
 
 @font-face {
   font-family: 'AlibabaPuHuiTi-Bold';
-  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Bold.ttf');
   font-weight: 700;
+  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Bold.ttf');
 }
 
 @font-face {
   font-family: 'AlibabaPuHuiTi-Heavy';
-  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Heavy.ttf');
   font-weight: 800;
+  src: url('~@/assets/font/alibabaPuHuiTi/Alibaba-PuHuiTi-Heavy.ttf');
 }
 ul,
 li {
   list-style: unset;
 }
 ::-webkit-scrollbar {
+  height: 8px;
   //滚动条整体样式 高宽分别对应横竖滚动条的尺寸
   width: 8px;
-  height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
+  background: $color-primary;
   //滚动条里面小方块
   border-radius: 4px;
-  background: $color-primary;
 }
 
 ::-webkit-scrollbar-track {
+  background: #efefef;
   //滚动条里面轨道
   border-radius: 4px;
-  background: #efefef;
 }
 
 .title {
+  align-items: center;
   color: #162146;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-family: AlibabaPuHuiTi-Bold, sans-serif;
   font-size: 20px;
-  font-family: AlibabaPuHuiTi-Bold;
+  justify-content: space-between;
   margin: 0 30px;
   button {
+    font-family: AlibabaPuHuiTi-Regular, sans-serif;
     font-size: 14px;
-    font-family: AlibabaPuHuiTi-Regular;
   }
 }
 
 .content-rb {
   background: white;
   border-radius: 30px;
-  min-height: calc(100vh - 178px);
   max-height: calc(100vh - 178px);
+  min-height: calc(100vh - 178px);
   overflow-y: auto;
   padding: 30px;
   width: 100%;
 }
 // 空数据居中
 .empty-center {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 // 向上三角形
 .top-triangle {
-  width: 0;
-  height: 0;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
   border-bottom: 6px solid #ff0037;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  height: 0;
+  width: 0;
 }
 
 // 向下三角形
 .bottom-triangle {
-  width: 0;
-  height: 0;
-  border-right: 5px solid transparent;
   border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
   border-top: 6px solid #5bc43a;
+  height: 0;
+  width: 0;
 }

@@ -36,21 +36,21 @@ export default {
 </script>
 <style scoped>
 .error-page {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
   background: #f3f3f3;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .error-code {
-  line-height: 1;
+  color: #2d8cf0;
   font-size: 250px;
   font-weight: bolder;
-  color: #2d8cf0;
+  line-height: 1;
 }
 
 .error-code span {
@@ -58,8 +58,8 @@ export default {
 }
 
 .error-desc {
-  font-size: 30px;
   color: #777;
+  font-size: 30px;
 }
 
 .error-handle {

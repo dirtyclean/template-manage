@@ -11,7 +11,7 @@
         <a-layout>
           <a-layout-content class="content-layout">
             <breadcrumb :title="$route.meta.title"></breadcrumb>
-            <div style="overflow: auto hidden;flex: 1">
+            <div style="flex: 1;overflow: auto hidden">
               <router-view></router-view>
             </div>
           </a-layout-content>
@@ -98,103 +98,18 @@ export default {
   }
 }
 
-.warning {
-  color: red !important;
-  animation: blink 1s linear infinite;
-}
-
-.seamless-warp {
-  overflow: hidden;
-  width: 570px;
-  height: 25px;
-  line-height: 25px;
-  ul.item {
-    width: 600px;
-    li {
-      float: left;
-      margin-right: 10px;
-    }
-  }
-}
-
-.monitor-header {
-  width: 100%;
-  height: 70px;
-  background: #ffffff;
-  border-radius: 15px;
-  margin-bottom: 25px;
-  margin-right: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .have-alarm {
-    border: none !important;
-    background-color: #fff2f4;
-    color: #ff0037 !important;
-  }
-  .monitor-alarm {
-    width: 660px;
-    height: 40px;
-    border: 1px solid #d0d2d3;
-    border-radius: 10px;
-    margin-left: 4px;
-    font-size: 14px;
-    font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Regular;
-    font-weight: 400;
-    text-align: left;
-    color: #2b3b45;
-    letter-spacing: 1px;
-    i {
-      opacity: 0.5;
-    }
-  }
-  .current-time {
-    width: 300px;
-    height: 40px;
-    background: #f5f5f7;
-    border-radius: 10px;
-    margin-left: 20px;
-    font-family: AlibabaPuHuiTi, AlibabaPuHuiTi-Regular;
-    font-weight: 400;
-    color: #2b3b45;
-    letter-spacing: 1px;
-    margin-right: 24px;
-  }
-  .alarm-number {
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    font-size: 22px;
-    font-family: BebasNeue;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 27px;
-    background: #ff0037;
-  }
-  .monitor-link {
-    width: 36px;
-    height: 36px;
-    background: #0084ff;
-    border-radius: 6px;
-    color: white;
-    font-size: 20px;
-  }
-}
-
 .content-layout {
-  padding-left: 30px;
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
   > div {
     width: 100%;
   }
 }
 
 .layout {
-  width: 100%;
   height: 100%;
+  width: 100%;
   .header-layout {
     background: #fff;
     padding: 0 50px 0 34px;
@@ -202,9 +117,9 @@ export default {
 }
 
 #components-layout-demo-custom-trigger .trigger {
+  cursor: pointer;
   font-size: 18px;
   padding: 10px 30px 0;
-  cursor: pointer;
   transition: color 0.3s;
 }
 
@@ -213,8 +128,8 @@ export default {
 }
 
 #components-layout-demo-custom-trigger .logo {
-  height: 32px;
   background: rgba(255, 255, 255, 0.2);
+  height: 32px;
   margin: 16px;
 }
 </style>

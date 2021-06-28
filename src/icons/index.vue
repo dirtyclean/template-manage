@@ -48,16 +48,16 @@ export default {
 
 <style scoped>
 .svg-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
   fill: currentColor;
+  height: 1em;
   overflow: hidden;
+  vertical-align: -0.15em;
+  width: 1em;
 }
 
 .svg-external-icon {
   background-color: currentColor;
-  mask-size: cover !important;
   display: inline-block;
+  mask-size: cover !important;
 }
 </style>

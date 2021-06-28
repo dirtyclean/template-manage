@@ -1,0 +1,14 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "root": true,
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "selector-max-id": 2,
+    "color-named": null,
+    "declaration-property-value-disallowed-list": {
+      "border": null
+    },
+    "selector-max-compound-selectors": 6,
+    "max-nesting-depth": 5
+  }
+}
