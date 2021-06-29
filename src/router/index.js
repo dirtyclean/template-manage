@@ -24,7 +24,7 @@ export const constantRoutes = [
         component: () => import('../views/system/index.vue'),
         name: 'system',
         meta: { icon: () => import('@/assets/img/svg/system.svg') },
-        redirect: '/notChild',
+        redirect: '/notChild', // 不授予任何子权限，重定向到/notChild
         children: []
       }
     ]
