@@ -4,33 +4,12 @@
 }
 // ant desing 样式修改
 
-/* 分页 start */
-.ant-pagination-total-text {
-  line-height: 32px !important;
-}
-.small-pagination {
-  .ant-pagination-total-text {
-    line-height: 24px !important;
-  }
-}
-
-/* 分页 end */
-
 /* modal start */
 %custom-modal {
   .ant-modal-body {
     max-height: 720px;
     padding-bottom: 56px;
     overflow-y: auto;
-  }
-  .ant-card-body {
-    height: 620px;
-    overflow-y: auto;
-    background-color: #f5f6f7;
-    border-radius: 10px;
-  }
-  .ant-card-bordered {
-    border-radius: 10px;
   }
 }
 .custom-modal {
@@ -161,51 +140,10 @@
 /*
    调整表单样式 start
   */
-.form-item-mb10 {
-  .ant-form-item {
-    margin-bottom: 10px !important;
-  }
-}
 
 /* 全局表单样式 start */
 .ant-input-number-handler-wrap {
   border-radius: 0 10px 10px 0 !important;
-}
-.ant-input,
-.ant-input-number,
-.ant-select {
-  // 高度全局 宽度非全局
-  height: 40px !important;
-}
-
-.ant-select-selection--single {
-  height: 40px !important;
-}
-// 多选框高度40
-.ant-select-selection--multiple {
-  padding-bottom: 1px !important;
-  ul > li {
-    height: 28px !important;
-    margin-top: 5px !important;
-    margin-bottom: 4px !important;
-    line-height: 26px !important;
-  }
-  /* stylelint-disable-next-line */
-  .ant-select-selection__rendered > ul > li {
-    height: 28px !important;
-    margin-top: 5px !important;
-    margin-bottom: 4px !important;
-    line-height: 26px !important;
-  }
-  /* stylelint-disable-next-line */
-  .ant-select-selection__clear {
-    margin-top: -2px !important;
-  }
-}
-/* stylelint-disable-next-line */
-.ant-select-selection__rendered,
-.ant-input-number {
-  line-height: 40px !important;
 }
 
 .ant-select-selection {
@@ -216,9 +154,7 @@
 .ant-input-number {
   border-radius: 10px !important;
 }
-textarea .ant-input {
-  height: auto !important;
-}
+
 .no-radius .ant-input {
   border-radius: unset !important;
 }
@@ -236,18 +172,6 @@ textarea .ant-input {
 
 /* 全局表单样式 end */
 .ant-pagination {
-  .ant-input,
-  .ant-select {
-    height: 32px !important;
-  }
-  .ant-select-selection--single {
-    height: 32px !important;
-  }
-  /* stylelint-disable-next-line */
-  .ant-select-selection__rendered {
-    line-height: 32px !important;
-  }
-
   .ant-select-selection {
     border-radius: 4px !important;
   }
@@ -260,7 +184,6 @@ textarea .ant-input {
     .ant-input,
     .ant-select {
       width: 180px;
-      height: 40px;
     }
     .ant-calendar-picker,
     .range-picker-showtime {
@@ -269,45 +192,12 @@ textarea .ant-input {
         width: 300px;
       }
     }
-    .ant-select-selection--single {
-      height: 40px;
-    }
-    /* stylelint-disable-next-line */
-    .ant-select-selection__rendered {
-      line-height: 40px;
-    }
     .ant-form-item-children {
       > button:nth-child(1) {
         margin-right: 0;
       }
     }
   }
-}
-.home {
-  .index-search-form-model {
-    .ant-form-item {
-      margin-bottom: 0 !important;
-    }
-  }
-  .ant-modal-footer {
-    display: none !important;
-  }
-
-  /* 调整栅格布局导致的横向滚动条 start */
-
-  .ant-row-flex,
-  .ant-row {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    > div:first-child {
-      padding-left: 0 !important;
-    }
-    > div:last-child {
-      padding-right: 0 !important;
-    }
-  }
-
-  /* 调整栅格布局导致的横向滚动条 end */
 }
 
 /* 调整表单样式 end */
@@ -352,11 +242,11 @@ textarea .ant-input {
   /* stylelint-disable */
   // content 查询条件仅1行 下的tabel设置最小高度和固定表头滚动
   .ant-table-content {
-    min-height: calc(100vh - 341px);
+    min-height: calc(100vh - 355px);
     .ant-table-scroll {
       // 只有表头与body列滚动条都为scroll时，才不会发生表头与body列错位
       .ant-table-body {
-        max-height: calc(100vh - 382px);
+        max-height: calc(100vh - 410px);
         overflow-x: auto !important;
         overflow-y: hidden !important;
       }
@@ -446,72 +336,15 @@ textarea .ant-input {
 /* 滚动条 end */
 
 .ant-table-tbody > tr > td {
-  // 全局td ellipsis: true start
-  // overflow: hidden;
-  // white-space: nowrap;
-  // text-overflow: ellipsis;
-  // 全局td ellipsis: true end
-  height: 46px;
-  padding: 10px 16px !important;
   font-family: AlibabaPuHuiTi-Regular, sans-serif;
   text-align: left;
   border: none !important;
-  .anticon {
-    font-size: 23px;
-  }
 }
-.small-table {
-  .ant-table-thead > tr > th {
-    padding: 0 !important;
-    overflow: hidden;
-    > span {
-      display: inline-block;
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px 20px;
-      background-color: #f5f5f7;
-    }
-  }
-  .ant-table-tbody > tr > td {
-    padding: 0 !important;
-    overflow: hidden;
-    > span {
-      display: block;
-      width: 100%;
-      padding: 10px 20px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      background-color: #f5f5f7;
-    }
-  }
-  .ant-table-tbody > tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected) > td {
-    background: none;
-  }
-  .ant-table-tbody > tr > td:nth-child(1) > span,
-  .ant-table-thead > tr > th:nth-child(1) > span {
-    margin-right: 10px;
-  }
-  .ant-table-tbody > tr > td:nth-child(2) > span,
-  .ant-table-thead > tr > th:nth-child(2) > span {
-    margin-left: 10px;
-    padding-left: 10px;
-  }
-}
-#app .ant-table-thead > tr > th {
-  padding: 10px 16px !important;
+.ant-table-thead > tr > th {
   font-family: AlibabaPuHuiTi-Medium, sans-serif;
   text-align: left;
   background: #fff !important;
   border-bottom: none !important;
-  .ant-table-column-title {
-    // 全局th ellipsis: true start
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    // 全局th ellipsis: true end
-  }
 }
 
 .ant-table-placeholder {
@@ -525,15 +358,3 @@ textarea .ant-input {
 
 /* 调整table end */
 
-.content-rb .ant-spin-text {
-  font-size: 16px !important;
-}
-
-/* 树选择 start */
-.tree-select-dropdown {
-  .ant-select-tree-switcher {
-    transform: translateY(-6px);
-  }
-}
-
-/* 树选择 end */

@@ -9,32 +9,32 @@
   </head>
   <style scoped>
     .loading-box {
-      margin: 0 auto;
-      overflow: hidden;
       position: absolute;
+      z-index: 9;
       width: 100%;
       height: 100%;
-      z-index: 9;
+      margin: 0 auto;
+      overflow: hidden;
       background: #fff;
     }
     .logo {
-      background-image: url(/logo.png);
-      background-repeat: no-repeat;
       width: 50px;
       height: 62px;
       margin-right: 20px;
+      background-image: url("/logo.png");
+      background-repeat: no-repeat;
       background-size: contain;
     }
     .title-text {
-      font-size: 32px;
-      font-weight: bold;
       color: #000;
+      font-weight: bold;
+      font-size: 32px;
     }
     .title-container {
-      margin-top: 8vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 8vh;
     }
     .loading {
       display: flex;
@@ -42,38 +42,38 @@
       margin-top: 30vh;
     }
     body {
-      margin: 0px;
+      margin: 0;
     }
     .title-english {
-      font-size: 16px;
-      color: #1e407f;
-      letter-spacing: 0.1ex;
-      text-align: center;
-      width: 100%;
       position: absolute;
       bottom: 50px;
+      width: 100%;
+      color: #1e407f;
+      font-size: 16px;
+      letter-spacing: 0.1ex;
+      text-align: center;
     }
     .loading-text {
       margin-top: 10px;
       font-size: 16px;
     }
     .ant-spin {
+      position: absolute;
+      display: none;
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       color: rgba(0, 0, 0, 0.65);
+      color: #1890ff;
       font-size: 14px;
       font-variant: tabular-nums;
       line-height: 1.5;
-      list-style: none;
-      font-feature-settings: 'tnum';
-      position: absolute;
-      display: none;
-      color: #1890ff;
       text-align: center;
       vertical-align: middle;
+      list-style: none;
       opacity: 0;
       transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+      font-feature-settings: 'tnum';
     }
     .ant-spin-spinning {
       position: static;
@@ -142,9 +142,6 @@
       clear: both;
       overflow: hidden;
       opacity: 0.5;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
       pointer-events: none;
     }
@@ -158,9 +155,9 @@
     .ant-spin-dot {
       position: relative;
       display: inline-block;
-      font-size: 20px;
       width: 1em;
       height: 1em;
+      font-size: 20px;
     }
     .ant-spin-dot-item {
       position: absolute;
@@ -172,7 +169,7 @@
       transform: scale(0.75);
       transform-origin: 50% 50%;
       opacity: 0.3;
-      -webkit-animation: antSpinMove 1s infinite linear alternate;
+      animation: antSpinMove 1s infinite linear alternate;
       animation: antSpinMove 1s infinite linear alternate;
     }
     .ant-spin-dot-item:nth-child(1) {
@@ -182,24 +179,21 @@
     .ant-spin-dot-item:nth-child(2) {
       top: 0;
       right: 0;
-      -webkit-animation-delay: 0.4s;
       animation-delay: 0.4s;
     }
     .ant-spin-dot-item:nth-child(3) {
       right: 0;
       bottom: 0;
-      -webkit-animation-delay: 0.8s;
       animation-delay: 0.8s;
     }
     .ant-spin-dot-item:nth-child(4) {
       bottom: 0;
       left: 0;
-      -webkit-animation-delay: 1.2s;
       animation-delay: 1.2s;
     }
     .ant-spin-dot-spin {
       transform: rotate(45deg);
-      -webkit-animation: antRotate 1.2s infinite linear;
+      animation: antRotate 1.2s infinite linear;
       animation: antRotate 1.2s infinite linear;
     }
     .ant-spin-lg .ant-spin-dot {
@@ -219,7 +213,7 @@
         opacity: 0.5;
       }
     }
-    @-webkit-keyframes antSpinMove {
+    @keyframes antSpinMove {
       to {
         opacity: 1;
       }
@@ -229,7 +223,7 @@
         opacity: 1;
       }
     }
-    @-webkit-keyframes antRotate {
+    @keyframes antRotate {
       to {
         transform: rotate(405deg);
       }
