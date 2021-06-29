@@ -1,6 +1,6 @@
 import req from '@/utils/request.js'
 import { sortMinToNull, getTreeData } from '../utils/methods'
-import { addRoutes } from '@/router'
+import { addRoutes } from '@/router/permission'
 import Vue from 'vue'
 const menus = [
   {
