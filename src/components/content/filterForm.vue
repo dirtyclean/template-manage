@@ -119,3 +119,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.index-search-form-model {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+}
+</style>

@@ -336,11 +336,13 @@
 /* 滚动条 end */
 
 .ant-table-tbody > tr > td {
+  padding: 12px !important;
   font-family: AlibabaPuHuiTi-Regular, sans-serif;
   text-align: left;
   border: none !important;
 }
 .ant-table-thead > tr > th {
+  padding: 12px !important;
   font-family: AlibabaPuHuiTi-Medium, sans-serif;
   text-align: left;
   background: #fff !important;
