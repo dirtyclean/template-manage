@@ -38,7 +38,6 @@ export default {
         const loadDom = document.getElementById('initLoading')
         loadDom && loadDom.remove()
       },
-      // 深度观察监听
       deep: true,
       immediate: false
     }
