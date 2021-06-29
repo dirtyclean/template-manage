@@ -1,5 +1,5 @@
 <template>
-  <div class="mb24">
+  <div class="mb25">
     <div class="title">
       <filterForm :filterComponentsData="filterComponentsData" :searchParams.sync="tempSearchParams" @search="search" />
       <slot name="btn"></slot>

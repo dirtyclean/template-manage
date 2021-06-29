@@ -103,7 +103,7 @@ export default {
       }).then(({ list, rowCount }) => {
         this.tableLoading = false
         this.tableData = list
-        rowCount && (this.paging = rowCount)
+        rowCount && (this.paging.total = rowCount)
       })
     }
   }

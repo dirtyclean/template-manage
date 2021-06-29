@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="main">
-      <div class="hBox vh-items-center vh-content-center" style="margin-bottom:15%;">
+      <div class="main-title">
         <img src="../assets/img/png/logo.png" height="62" width="50" />
         <div class="ml20 mt20 psr tljustify">
           <div class="logo-title mb15">
@@ -341,6 +341,8 @@ export default {
 
 .content {
   position: relative;
+  width: 100%;
+  height: 100%;
   background: url('../assets/img/png/login-bg.png') no-repeat bottom / contain #f5f7fd;
 }
 
@@ -353,6 +355,15 @@ export default {
   background: white;
   border-radius: 30px;
   transform: translate(-50%, -50%);
+  .main-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15%;
+    > div {
+      flex-grow: 1;
+    }
+  }
   .logo {
     display: block;
     margin: auto auto 40px;
@@ -364,7 +375,7 @@ export default {
     font-size: 14px;
   }
 
-  button .login-btn {
+  .login-btn {
     width: 100%;
     height: 40px;
     padding: 0 15px;
