@@ -46,7 +46,7 @@ export default {
     getUserInfo () {
       const { userInfo } = this
       if ((!userInfo || !Object.keys(userInfo).length) && window.location.hash !== '#/login' && getStorage('token')) {
-        console.log('====获取userInfo====')
+        console.log('====获取userInfo====...')
         this.$apiReq.user.getUserInfo()
       }
     }
