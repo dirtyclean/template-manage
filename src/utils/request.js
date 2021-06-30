@@ -13,7 +13,7 @@ const service = axios.create({
 service.interceptors.request.use(config => {
   const token = getStorage('token')
   if (token) {
-    config.headers.pcbstoken = token
+    config.headers.pcbstoken = constant.TOKEN_PREFIX + token
   }
   return config
 })

@@ -38,7 +38,10 @@ export const DATEPICK_OPTION = (option = {}) => {
     separator: '-'
   }
 }
-export const constant = {}
+export const constant = {
+  TOKEN_PREFIX: '',
+  BASEURL: '/api'
+}
 const env = {
   projectTitle: process.env.VUE_APP_PROJECT_TITLE
 }

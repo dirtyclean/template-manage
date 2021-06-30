@@ -176,7 +176,7 @@ export default {
       })
     },
     async login (data) {
-      const { token } = await this.$apiReq.login(data)
+      const { token } = await this.$apiReq.user.login(data)
       setStorage('token', token)
       return await this.$apiReq.getUserInfo()
     },

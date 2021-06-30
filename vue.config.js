@@ -21,7 +21,7 @@ const assetsCDN = {
   css: [],
   js: [
     '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
-    '//cdn.jsdelivr.net/npm/vue-router@3.4.9/dist/vue-router.min.js',
+    '//cdn.jsdelivr.net/npm/vue-router@3.5.1/dist/vue-router.min.js',
     '//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js',
     '//cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.js'
   ]
@@ -151,31 +151,23 @@ const vueConfig = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      '/api': {
+        target: process.env.VUE_APP_API,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      },
+      '/file': {
+        target: 'https://api-file.scdem.cn',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/file': '/'
+        }
+      }
     }
-    // proxy: {
-    //   '/api': {
-    //     // target: 'http://scsf-app-dev.local:12106',
-    //     target: 'http://10.10.10.117:12106',
-    //     changeOrigin: true,
-    //     pathRewrite: {
-    //       '^/api': '/'
-    //     }
-    //   },
-    //   '/app': {
-    //     target: 'http://127.0.0.1:12107',
-    //     changeOrigin: true,
-    //     pathRewrite: {
-    //       '^/app': '/'
-    //     }
-    //   },
-    //   '/file': {
-    //     target: 'http://127.0.0.1:12106',
-    //     changeOrigin: true,
-    //     pathRewrite: {
-    //       '^/': '/'
-    //     }
-    //   }
-    // }
   },
 
   // disable source map in production
