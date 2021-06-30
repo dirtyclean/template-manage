@@ -1,7 +1,7 @@
 import url from '../url-config.js'
 import req from '../request'
 import { constant } from '../config'
-import { getStorage } from '@/utils/localStorage.js'
+import { getStorage, setStorage } from '@/utils/localStorage.js'
 export const getFileToken = ({ file }) => {
   const crypto = require('crypto')
   const MD5_VALUE = crypto.createHash('md5')
@@ -20,6 +20,7 @@ export const getFileToken = ({ file }) => {
             userToken: constant.TOKEN_PREFIX + getStorage('Authorization')
           })
           .then(({ data }) => {
+            setStorage('fileToken', data.token)
             resolve(data)
           })
           .catch(e => {

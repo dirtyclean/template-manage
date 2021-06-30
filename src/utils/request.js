@@ -2,7 +2,7 @@ import axios from 'axios'
 import { notification, message } from 'ant-design-vue'
 import router from '../router'
 import { constant } from '../config'
-import { getStorage } from '@/utils/storage/localStorage'
+import { getStorage, removeStorage } from '@/utils/storage/localStorage'
 let hasNotification = false
 
 const service = axios.create({
@@ -12,8 +12,12 @@ const service = axios.create({
 
 service.interceptors.request.use(config => {
   const token = getStorage('token')
-  if (token) {
-    config.headers.pcbstoken = constant.TOKEN_PREFIX + token
+  const fileToken = getStorage('fileToken')
+  if (fileToken) {
+    config.headers.token = fileToken
+    removeStorage('fileToken')
+  } else if (token) {
+    config.headers.token = constant.TOKEN_PREFIX + token
   }
   return config
 })
