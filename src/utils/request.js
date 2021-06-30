@@ -1,17 +1,12 @@
 import axios from 'axios'
 import { notification, message } from 'ant-design-vue'
-import qs from 'qs'
 import router from '../router'
 import { constant } from '../config'
 import { getStorage } from '@/utils/storage/localStorage'
-let timeout = 60 * 1000
-if (process.env.NODE_ENV !== 'development') {
-  timeout = 60 * 1000
-}
 let hasNotification = false
 
 const service = axios.create({
-  timeout,
+  timeout: 60 * 1000,
   baseURL: constant.BASEURL
 })
 
@@ -26,7 +21,7 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(
   response => {
     if (response.status === 200) {
-      if (!response.data && response.data !== false) {
+      if ((!response.data && response.data !== false) || (response.data.code && response.data.code !== '200')) {
         return Promise.reject(response)
       }
       return response.data
@@ -59,33 +54,27 @@ const notification401 = msg => {
     router.push('/login')
   })
 }
-function whenErr (url, resolve, reject, error = '') {
+function whenErr (url, reject, error = '') {
   console.log(error)
   const { status, data } = error
   const isProduction = process.env.NODE_ENV === 'production'
-  switch (status) {
+  const code = data.code ? data.code : status
+  switch (code) {
+    case '401':
     case 401:
-      notification401(data.msg)
+      notification401(data.message)
       return reject(error)
     case 404:
-      isProduction && message.error('404未找到')
-      !isProduction && message.error(`/${url} --> 404 not found`)
+      message.error(`${url} --> 404未找到`)
       return reject(error)
   }
   if (!data) {
     // 无任何内容返回
-    isProduction && message.error('无任何内容返回')
-    !isProduction && message.error(`/${url} --> This request has no response data available`)
-  } else if (data.type || data.msg) {
-    // 后端封装错误
-    isProduction &&
-      message.error(h => {
-        return <span domPropsInnerHTML={data.msg || '服务器响应出错'}></span>
-      })
-    !isProduction &&
-      message.error(h => {
-        return <span domPropsInnerHTML={data.msg || data.type}></span>
-      })
+    message.error(`${url} --> 无任何内容返回`)
+  } else if (data.message) {
+    message.error(h => {
+      return <span domPropsInnerHTML={data.message || '服务器响应出错'}></span>
+    })
   } else if (error.data instanceof ArrayBuffer) {
     message.error('服务器响应出错')
   } else {
@@ -95,80 +84,34 @@ function whenErr (url, resolve, reject, error = '') {
   }
   return reject(error)
 }
-
-function get (url, data, responseType = '', otherConfig = {}) {
+const request = config => {
   return new Promise((resolve, reject) => {
-    service({
-      method: 'get',
-      url: url,
-      params: data || '',
-      responseType,
-      ...otherConfig
-    })
+    service(config)
       .then(res => {
         resolve(res)
       })
       .catch(e => {
-        whenErr(url, resolve, reject, e)
+        whenErr(config.url, reject, e)
       })
   })
 }
-
-function put (url, data, isJson = false, otherConfig = {}) {
-  return new Promise((resolve, reject) => {
-    service({
-      method: 'put',
-      url: url,
-      data: isJson ? data : qs.stringify(data),
-      ...otherConfig
-    })
-      .then(res => {
-        resolve(res)
-      })
-      .catch(e => {
-        whenErr(url, resolve, reject, e)
-      })
-  })
+function get (url, params, options = {}) {
+  return request(Object.assign(options, { url, params }))
 }
-
-function del (url, data, isJson = false) {
-  return new Promise((resolve, reject) => {
-    service({
-      method: 'delete',
-      url: url,
-      params: isJson ? '' : data || '',
-      data: isJson ? data : null
-    })
-      .then(res => {
-        resolve(res)
-      })
-      .catch(e => {
-        whenErr(url, resolve, reject, e)
-      })
-  })
+function post (url, data, options = {}) {
+  return request(Object.assign(options, { url, data, method: 'post' }))
 }
-
-function post (url, data, isJson = false, otherConfig = {}) {
-  return new Promise((resolve, reject) => {
-    service({
-      method: 'post',
-      url: url,
-      data: isJson ? data : qs.stringify(data),
-      ...otherConfig
-    })
-      .then(res => {
-        resolve(res)
-      })
-      .catch(e => {
-        whenErr(url, resolve, reject, e)
-      })
-  })
+function put (url, data, options = {}) {
+  return request(Object.assign(options, { url, data, method: 'put' }))
 }
-
+function del (url, data, options = {}) {
+  return request(Object.assign(options, { url, data, method: 'delete' }))
+}
 export default {
   post,
   get,
   put,
   del,
+  request,
   notification401
 }
