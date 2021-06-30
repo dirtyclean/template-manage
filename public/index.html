@@ -241,7 +241,7 @@
         enable it to continue.</strong
       >
     </noscript>
-    <div class="loading-box" id="initLoading" style="display: none;">
+    <div class="loading-box" id="initLoading">
       <div class="title-container">
         <div class="logo"></div>
         <div class="title-text">
@@ -263,10 +263,6 @@
       </div>
     </div>
     <script>
-      if (window.location.hash !== '#/login' && window.localStorage.getItem('token')) {
-        const initLoading = document.getElementById('initLoading');
-        initLoading.style.display = 'block';
-      }
       console.log('版本时间：', '<%= process.version %>')
     </script>
     <div id="app"></div>

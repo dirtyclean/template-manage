@@ -9,7 +9,6 @@
 <script>
 import { ConfigProvider } from 'ant-design-vue'
 import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
-import { getStorage } from '@/utils/storage/localStorage.js'
 export default {
   name: 'App',
   components: {
@@ -33,26 +32,10 @@ export default {
     }
   },
   watch: {
-    $route: {
-      handler: function (val, oldVal) {
-        const loadDom = document.getElementById('initLoading')
-        loadDom && loadDom.remove()
-      },
-      deep: true,
-      immediate: false
-    }
   },
   methods: {
-    getUserInfo () {
-      const { userInfo } = this
-      if ((!userInfo || !Object.keys(userInfo).length) && window.location.hash !== '#/login' && getStorage('token')) {
-        console.log('====获取userInfo====...')
-        this.$apiReq.user.getUserInfo()
-      }
-    }
   },
   created () {
-    this.getUserInfo()
   }
 }
 </script>
