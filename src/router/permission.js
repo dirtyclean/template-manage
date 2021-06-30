@@ -1,4 +1,4 @@
-import router, { resetRouter, constantRoutes } from './index'
+import router, { resetRouter, asyncRoutes } from './index'
 import { cloneDeep, getItemById } from '@/utils/methods'
 import { getStorage } from '@/utils/storage/localStorage'
 const addRoutes = userInfo => {
@@ -38,7 +38,7 @@ const addRoutes = userInfo => {
       }
     }
   }
-  let purviewRoutes = cloneDeep(constantRoutes)
+  let purviewRoutes = cloneDeep(asyncRoutes)
   purviewRoutes.forEach(item => {
     if (item.path === '/') {
       if (item.children?.length) {
@@ -95,6 +95,6 @@ const addRoutes = userInfo => {
   ]
   console.log(purviewRoutes, 'purviewRoutes')
   router.options.routes = [...router.options.routes, ...purviewRoutes]
-  router.addRoutes([...purviewRoutes])
+  purviewRoutes.forEach(route => router.addRoute(route))
 }
 export { addRoutes }

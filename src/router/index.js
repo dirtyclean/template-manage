@@ -6,7 +6,7 @@ Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 Vue.use(Router)
-export const constantRoutes = [
+export const asyncRoutes = [
   {
     path: '/',
     component: () => import('../views/index.vue'),
@@ -30,24 +30,25 @@ export const constantRoutes = [
     ]
   }
 ]
+const constantRoutes = [
+  {
+    path: '/login',
+    component: () => import('../views/login.vue'),
+    name: 'login'
+  },
+  {
+    path: '/403',
+    component: () => import('../views/error-page/403.vue')
+  },
+  {
+    path: '/notChild',
+    component: () => import('../views/error-page/notChild.vue'),
+    name: 'notChild'
+  }
+]
 const createRouter = () => {
   return new Router({
-    routes: [
-      {
-        path: '/login',
-        component: () => import('../views/login.vue'),
-        name: 'login'
-      },
-      {
-        path: '/403',
-        component: () => import('../views/error-page/403.vue')
-      },
-      {
-        path: '/notChild',
-        component: () => import('../views/error-page/notChild.vue'),
-        name: 'notChild'
-      }
-    ]
+    routes: [...constantRoutes]
   })
 }
 const router = createRouter()
