@@ -1,6 +1,6 @@
 <template>
   <div class="content h-between-center">
-    <div class="hBox vh-items-center vh-grow">
+    <div class="h-box vh-items-center vh-grow">
       <img src="../assets/img/png/logo.png" height="62" width="50" />
       <div class="ml20 psr">
         <div class="logo-title mb6">
@@ -9,7 +9,7 @@
         <!-- <div class="sub-title">Forest Fire Prevention</div> -->
       </div>
     </div>
-    <div class="hBox vh-items-center">
+    <div class="h-box vh-items-center">
       <a-select
         v-if="false"
         v-model="userRole"
@@ -30,7 +30,7 @@
         {{ name }}
       </div>
       <a-dropdown placement="bottomLeft">
-        <div class="avatar hBox vh-items-center vh-content-center mr10"></div>
+        <div class="avatar h-box vh-items-center vh-content-center mr10"></div>
         <a-menu slot="overlay" @click="menuClick">
           <a-menu-item key="modification">
             <div class="menu-item-content">
