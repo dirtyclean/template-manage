@@ -2,7 +2,8 @@
 .history
 node_modules
 /dist
-
+/dist-production
+dist-production.zip
 
 # local env files
 .env.local
