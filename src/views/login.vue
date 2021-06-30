@@ -119,18 +119,12 @@ export default {
   data () {
     clearStorage()
     return {
-      loginBtn: false,
-      loginType: 0,
       username: getStorage('username') || '',
       password: getStorage('password') || '',
       rememberMe: getStorage('rememberMe') === 'true' || false,
-      isLoginError: false,
-      errorMessage: '',
       form: this.$form.createForm(this),
       state: {
-        time: 60,
-        loginBtn: false,
-        smsSendBtn: false
+        loginBtn: false
       },
       verifyData: {}
     }
@@ -219,7 +213,6 @@ export default {
             ...this.verifyData
           })
             .then(res => this.loginSuccess(res))
-            .catch(err => this.requestFailed(err))
             .finally(() => {
               state.loginBtn = false
               this.resetVerify()
@@ -236,7 +229,6 @@ export default {
       const { menus } = res
       if (!menus || !menus.length) {
         this.$message.warning('您无任何权限, 请联系管理员!!')
-        this.isLoginError = false
         return
       }
       this.$router.push({
@@ -249,21 +241,10 @@ export default {
           description: '欢迎回来'
         })
       }, 1000)
-      this.isLoginError = false
     },
     resetVerify () {
       window.ic.reset() // 将智能验证重置为初始状态
       this.verifyData = {}
-    },
-    requestFailed (err) {
-      console.log(err, 'err')
-      this.isLoginError = true
-      this.errorMessage = ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试'
-      notification.error({
-        message: '错误',
-        description: this.errorMessage,
-        duration: 4
-      })
     }
   }
 }
