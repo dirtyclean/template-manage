@@ -88,7 +88,7 @@ const vueConfig = {
       .include.add(resolve('src/icons')) // 添加我们要处理的文件路径
       .end() // 上面的add方法改变了上下文，调用end()退回到include这一级
       .use('svg-sprite-loader') // 使用"svg-sprite-loader"这个依赖
-      .loader('svg-sprite-loader')// 选中这个依赖
+      .loader('svg-sprite-loader') // 选中这个依赖
       .options({
         symbolId: 'icon-[name]' // 这个配置是这个包的配置不属于webpack，可以查看相关文档，symbolId指定我们使用svg图片的名字
       }) // 传入配置
@@ -111,6 +111,15 @@ const vueConfig = {
             })
           }
         }
+        return options
+      })
+    // eslint --fix
+    config.module
+      .rule('eslint')
+      .use('eslint-loader')
+      .loader('eslint-loader')
+      .tap(options => {
+        options.fix = true
         return options
       })
     config.resolve.alias.set('@$', resolve('src'))
