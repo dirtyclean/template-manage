@@ -114,11 +114,7 @@ const vueConfig = {
         return options
       })
     // eslint --fix
-    config.module
-      .rule('eslint')
-      .use('eslint-loader')
-      .loader('eslint-loader')
-      .tap(options => {
+    config.module.rule('eslint').use('eslint-loader').loader('eslint-loader').tap(options => {
         options.fix = false
         return options
       })
