@@ -9,6 +9,8 @@ module.exports = {
     记住，如果你放弃使用plugin:prettier/recommended，且想要在提交git时配置先使用prettier格式化再用eslint修复，不建议这样做。因为可能会导致提交修复代码无限循环。
     放弃使用plugin:prettier/recommended还有一个弊端，就是prettier格式问题将不再抛错
     eslint与prettier冲突的配置项见:https://github.com/prettier/eslint-config-prettier#special-rules
+
+    （@vue/eslint-config-prettier + @vue/prettier）与（eslint-config-prettier + plugin:prettier/recommended）达到的效果一致
   */
   extends: ['plugin:vue/essential', '@vue/standard', 'plugin:prettier/recommended'],
   parserOptions: {
