@@ -36,7 +36,7 @@
 </template>
 <script>
 import { Select } from 'ant-design-vue'
-function getCurrPaginationData (pageNo, pageSize, array) {
+function getCurrPaginationData(pageNo, pageSize, array) {
   const offset = (pageNo - 1) * pageSize
   return offset + pageSize >= array.length ? array.slice(offset, array.length) : array.slice(offset, offset + pageSize)
 }
@@ -46,7 +46,7 @@ export default {
     ASelect: Select,
     ASelectOption: Select.Option
   },
-  data () {
+  data() {
     return {
       currOptions: [], // 当前渲染的数据
       searchName: '',
@@ -70,7 +70,7 @@ export default {
     filterFuction: {
       type: Function,
       required: false,
-      default: function (searchName) {
+      default: function(searchName) {
         return this.dataSource.filter(item => item[this.fieldNames.label].includes(searchName)) || []
       }
     },
@@ -152,7 +152,7 @@ export default {
   watch: {
     options: {
       immediate: false,
-      handler (options) {
+      handler(options) {
         this.dataSource = options.map(item => ({ ...item }))
         this.pageNum = 1
         this.searchName = ''
@@ -161,7 +161,7 @@ export default {
     }
   },
   computed: {
-    textValue () {
+    textValue() {
       if (typeof this.value === 'object') {
         return this.value[this.fieldNames.value]
       } else {
@@ -170,10 +170,10 @@ export default {
     }
   },
   methods: {
-    change (value, option) {
+    change(value, option) {
       this.$emit('change', value, option)
     },
-    updateCurrOptions (isOpen) {
+    updateCurrOptions(isOpen) {
       console.log(isOpen, 'isOpen')
       this.searchName = '' // 因为选择器默认关闭下拉列表输入框的搜索内容会不见（所以我们把搜索值会置为空）
       if (isOpen) {
@@ -196,7 +196,7 @@ export default {
       }
       this.open = isOpen
     },
-    search (val) {
+    search(val) {
       if (!this.open) return
       this.searchName = val
       this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
@@ -208,7 +208,7 @@ export default {
         this.currOptions = getCurrPaginationData(this.pageNum, this.pageSize, this.filterFuction(this.searchName))
       }, 600)
     },
-    popupScroll (e) {
+    popupScroll(e) {
       const { target } = e
       const scrollHeight = target.scrollHeight - target.scrollTop
       const clientHeight = target.clientHeight

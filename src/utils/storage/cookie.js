@@ -1,4 +1,4 @@
-function getCookie (key) {
+function getCookie(key) {
   try {
     if (document.cookie.length > 0) {
       let startIdx = document.cookie.indexOf(key + '=')
@@ -13,7 +13,7 @@ function getCookie (key) {
   } catch (e) {}
 }
 
-function setCookie (key, value, expiredays) {
+function setCookie(key, value, expiredays) {
   const exdate = new Date()
   exdate.setDate(exdate.getDate() + expiredays)
   document.cookie = key + '=' + escape(value) + (expiredays == null ? '' : ';expires=' + exdate.toGMTString())

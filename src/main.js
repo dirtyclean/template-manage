@@ -17,10 +17,10 @@ import '@/utils/directives'
 import '@/utils/sysEvt/sysEvtBus'
 import '@/icons'
 moment.locale('zh-cn')
-simpleTable.install = function (Vue) {
+simpleTable.install = function(Vue) {
   Vue.component(simpleTable.name, simpleTable)
 }
-contentHeader.install = function (Vue) {
+contentHeader.install = function(Vue) {
   Vue.component(contentHeader.name, contentHeader)
 }
 

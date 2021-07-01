@@ -14,7 +14,7 @@ export default {
   components: {
     filterForm
   },
-  data () {
+  data() {
     return {
       tempSearchParams: this.searchParams
     }
@@ -30,9 +30,9 @@ export default {
     }
   },
   watch: {},
-  mounted () {},
+  mounted() {},
   methods: {
-    search () {
+    search() {
       this.$emit('update:searchParams', {
         ...this.tempSearchParams
       })

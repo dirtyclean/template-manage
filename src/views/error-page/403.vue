@@ -18,18 +18,18 @@ export default {
     AButton: Button
   },
   methods: {
-    goBack () {
+    goBack() {
       this.$router.go(-2)
     }
   },
-  mounted () {
+  mounted() {
     // 触发浏览器默认返回事件，vue-seamless-scroll会报错，这里我们自己定义返回
     if (window.history && window.history.pushState) {
       history.pushState(null, null, document.URL)
       window.addEventListener('popstate', this.goBack, false)
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     window.removeEventListener('popstate', this.goBack, false)
   }
 }

@@ -7,8 +7,9 @@ module.exports = {
     配置让eslint忽略与perttier冲突的检查：extends：['plugin:prettier/recommended']。
     然而我不想这样子做，我想保留eslint的一些校验规则，可以先使用快捷键prettier格式化，再保存时自动使用eslint修复。让prettier兼容eslint；
     记住，如果你放弃使用plugin:prettier/recommended，且想要在提交git时配置先使用prettier格式化再用eslint修复，不建议这样做。因为可能会导致提交修复代码无限循环。
+    放弃使用plugin:prettier/recommended还有一个弊端，就是prettier格式问题将不再抛错
   */
-  extends: ['plugin:vue/essential', '@vue/standard'],
+  extends: ['plugin:vue/essential', '@vue/standard', 'plugin:prettier/recommended'],
   parserOptions: {
     parser: 'babel-eslint'
   },

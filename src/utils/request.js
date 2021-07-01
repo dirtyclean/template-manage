@@ -39,13 +39,13 @@ service.interceptors.response.use(
   }
 )
 
-const createNotification = function (msg) {
+const createNotification = function(msg) {
   console.log(hasNotification, 'hasNotification')
   if (!hasNotification) {
     notification.open({
       message: '系统通知',
       description: msg || '登陆状态过期，请重新登陆',
-      onClose () {
+      onClose() {
         hasNotification = false
       }
     })
@@ -58,7 +58,7 @@ const notification401 = msg => {
     router.push('/login')
   })
 }
-function whenErr (url, reject, error = '') {
+function whenErr(url, reject, error = '') {
   console.log(error)
   const { status, data } = error
   const isProduction = process.env.NODE_ENV === 'production'
@@ -99,16 +99,16 @@ const request = config => {
       })
   })
 }
-function get (url, params, options = {}) {
+function get(url, params, options = {}) {
   return request(Object.assign(options, { url, params }))
 }
-function post (url, data, options = {}) {
+function post(url, data, options = {}) {
   return request(Object.assign(options, { url, data, method: 'post' }))
 }
-function put (url, data, options = {}) {
+function put(url, data, options = {}) {
   return request(Object.assign(options, { url, data, method: 'put' }))
 }
-function del (url, data, options = {}) {
+function del(url, data, options = {}) {
   return request(Object.assign(options, { url, data, method: 'delete' }))
 }
 export default {

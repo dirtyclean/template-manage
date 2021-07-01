@@ -82,7 +82,7 @@ export default {
     ARangePicker: RangePicker,
     ACascader: Cascader
   },
-  data () {
+  data() {
     this.inputSearchTimer = null
     this.initSearchParams = {}
     return {}
@@ -98,19 +98,19 @@ export default {
     }
   },
   watch: {},
-  mounted () {
+  mounted() {
     this.initSearchParams = {
       ...this.searchParams
     }
   },
   methods: {
-    search () {
+    search() {
       clearTimeout(this.inputSearchTimer)
       this.inputSearchTimer = setTimeout(() => {
         this.$emit('search')
       }, 600)
     },
-    reset () {
+    reset() {
       this.$emit('update:searchParams', {
         ...this.initSearchParams
       })
