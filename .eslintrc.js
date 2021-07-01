@@ -8,7 +8,7 @@ module.exports = {
     然而我不想这样子做，我想保留eslint的一些校验规则，
     可以先使用prettier格式化，再使用eslint修复。让prettier兼容eslint。
   */
-  extends: ['plugin:vue/essential', '@vue/standard'],
+  extends: ['plugin:vue/essential', '@vue/standard', 'plugin:prettier/recommended'],
   parserOptions: {
     parser: 'babel-eslint'
   },
