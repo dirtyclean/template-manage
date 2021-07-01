@@ -21,7 +21,7 @@ import { Icon, Button } from 'ant-design-vue'
 import { DATEPICK_OPTION } from '@/config'
 
 export default {
-  name: 'content-simple',
+  name: 'template',
   components: {
     AIcon: Icon,
     AButton: Button
@@ -149,17 +149,17 @@ export default {
         title: record ? '编辑' : '新增'
       })
     },
-    async del (delId) {
-      await this.$apiReq.del({ id: delId })
+    del (delId) {
+      return this.$apiReq.del({ id: delId })
     },
-    async getTableData (
+    getTableData (
       pagination = {
         pageNum: 1,
         pageSize: 10
       }
     ) {
       console.log(pagination, this.searchParams)
-      return await this.$apiReq
+      return this.$apiReq
         .getList({
           ...pagination,
           ...this.searchParams

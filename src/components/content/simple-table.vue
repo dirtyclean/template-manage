@@ -5,7 +5,7 @@
         ...antdOtherApi
       }"
       :columns="columns"
-      :loading="false"
+      :loading="tableLoading"
       :data-source="tableData"
       :class="tableType"
       :scroll="{ y: true }"

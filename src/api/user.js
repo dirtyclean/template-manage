@@ -133,11 +133,15 @@ export default {
     getUserHavePromiseMenus,
     getUserInfo
   },
-  getList: async () => {
-    return {
-      list: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      rowCount: 10
-    }
+  getList: () => {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve({
+          list: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+          rowCount: 10
+        })
+      }, 2000)
+    })
   },
   del: async () => {
     return true
