@@ -21,7 +21,7 @@ export default {
     AIcon: Icon,
     AButton: Button
   },
-  data() {
+  data () {
     return {
       // table
       columns: [
@@ -94,12 +94,12 @@ export default {
     }
   },
   computed: {},
-  mounted() {},
+  mounted () {},
   methods: {
-    updateTable() {
+    updateTable () {
       this.$refs.simpleTable.renderTable()
     },
-    openModal(record) {
+    openModal (record) {
       this.RAISE_EVT(this.EVT_ENUM.FW_SHOW_DIALOG, {
         component: () => import('./modal/index.vue'),
         params: {
@@ -111,10 +111,10 @@ export default {
         title: record ? '编辑' : '新增'
       })
     },
-    async del(delId) {
+    async del (delId) {
       await this.$apiReq.del({ id: delId })
     },
-    async getTableData(
+    async getTableData (
       pagination = {
         pageNum: 1,
         pageSize: 10

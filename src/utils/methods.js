@@ -10,7 +10,7 @@ export const isPromise = obj => {
   return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function'
 }
 export const cloneDeep = (obj, cache = []) => {
-  function find(list, f) {
+  function find (list, f) {
     return list.filter(f)[0]
   }
   if (obj === null || typeof obj !== 'object') {
@@ -36,7 +36,7 @@ export const getSelectedIds = (data, id, parentKey = 'parentId', key = 'id', chi
   // 找到第一级的pId(rootPId)
   const rootPIds = data.map(item => item[parentKey])
   const selResult = []
-  function findSel(data, id) {
+  function findSel (data, id) {
     let isFind = false
     for (const i of data) {
       if (isFind) {
@@ -70,7 +70,7 @@ export const getPIds = (data, id, parentKey = 'parentId', key = 'id', childrenKe
 }
 export const getItemById = (data, id, idKey = 'id') => {
   let result
-  function findSel(treeData) {
+  function findSel (treeData) {
     treeData.forEach(el => {
       if (!result) {
         if (id === el[idKey]) {
@@ -90,7 +90,7 @@ export const getSelectedItems = (data, selectedIds) => {
     return []
   }
   const selResult = []
-  function findSel(treeData) {
+  function findSel (treeData) {
     treeData.forEach(item => {
       const { id, children } = item
       if (selectedIds.includes(id)) {
@@ -259,7 +259,7 @@ export const isProvince = areaCode => {
 }
 export const optionsIsExitId = (options, id) => {
   let isFind = false
-  function find(data) {
+  function find (data) {
     data.forEach(option => {
       if (option.id === id) {
         isFind = true
@@ -276,7 +276,7 @@ export const optionsIsExitId = (options, id) => {
 }
 export const getEffectIds = (options, ids) => {
   const effectIds = []
-  function find(data) {
+  function find (data) {
     data.forEach(option => {
       if (ids.includes(option.id)) {
         effectIds.push(option.id)
@@ -291,7 +291,7 @@ export const getEffectIds = (options, ids) => {
 }
 export const getColors = (randomColorKind = 20) => {
   const colors = []
-  const getRandomColor = function() {
+  const getRandomColor = function () {
     let randomColor = '#'
     const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
     for (let i = 0; i < 6; i++) {

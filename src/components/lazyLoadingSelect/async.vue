@@ -41,7 +41,7 @@
 </template>
 <script>
 import { Select, Spin } from 'ant-design-vue'
-function getCurrPaginationData(pageNo, pageSize, array) {
+function getCurrPaginationData (pageNo, pageSize, array) {
   const offset = (pageNo - 1) * pageSize
   return offset + pageSize >= array.length ? array.slice(offset, array.length) : array.slice(offset, offset + pageSize)
 }
@@ -51,7 +51,7 @@ export default {
     ASelectOption: Select.Option,
     ASpin: Spin
   },
-  data() {
+  data () {
     return {
       currOptions: [], // 当前渲染的数据
       searchName: '',
@@ -92,7 +92,7 @@ export default {
     getAsyncOptions: {
       type: Function,
       required: true,
-      default: function() {
+      default: function () {
         return []
       }
     },
@@ -159,14 +159,14 @@ export default {
       default: true
     }
   },
-  mounted() {
+  mounted () {
     this._lastFetchId = 0
   },
   methods: {
-    change(value, option) {
+    change (value, option) {
       this.$emit('change', value, option)
     },
-    updateCurrOptions(isOpen) {
+    updateCurrOptions (isOpen) {
       console.log(isOpen, 'isOpen')
       this.open = isOpen
       this.searchName = ''
@@ -200,7 +200,7 @@ export default {
         this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
       }
     },
-    async setSearchResult(val, pageNum = this.pageNum, pageSize = this.pageSize) {
+    async setSearchResult (val, pageNum = this.pageNum, pageSize = this.pageSize) {
       this._lastFetchId += 1
       const fetchId = this._lastFetchId
       if (this.isAsyncPagination) {
@@ -230,7 +230,7 @@ export default {
         })
       }
     },
-    search(val) {
+    search (val) {
       if (!this.open) return
       this.searchName = val
       this._inputSearchTimer && clearTimeout(this._inputSearchTimer)
@@ -248,7 +248,7 @@ export default {
         this.fetching = false
       }, 600)
     },
-    async popupScroll(e) {
+    async popupScroll (e) {
       const { target } = e
       const scrollHeight = target.scrollHeight - target.scrollTop
       const clientHeight = target.clientHeight

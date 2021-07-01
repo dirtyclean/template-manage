@@ -18,7 +18,7 @@ export default {
     AButton: Button
   },
   methods: {
-    goBack() {
+    goBack () {
       this.$router.go(-1)
     }
   }

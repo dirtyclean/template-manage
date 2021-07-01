@@ -6,11 +6,11 @@
 export default {
   name: 'version',
   components: {},
-  data() {
+  data () {
     return {}
   },
   watch: {},
   methods: {},
-  created() {}
+  created () {}
 }
 </script>

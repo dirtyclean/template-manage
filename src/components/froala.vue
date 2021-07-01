@@ -42,7 +42,7 @@ export default {
     prop: 'value',
     event: 'change'
   },
-  data() {
+  data () {
     this.initFroalaControls = null
     this.isFroalaFocus = false
     return {
@@ -146,7 +146,7 @@ export default {
     }
   },
   methods: {
-    setTab(event) {
+    setTab (event) {
       if (event.code === 'Tab') {
         console.log(this.isFroalaFocus, 'this.isFroalaFocus')
         if (!this.isFroalaFocus) return
@@ -157,7 +157,7 @@ export default {
         }, 200)
       }
     },
-    initializeFroala(initControls) {
+    initializeFroala (initControls) {
       this.initFroalaControls = initControls
       this.initFroalaControls.initialize() // 初始化Froala编辑器
     }

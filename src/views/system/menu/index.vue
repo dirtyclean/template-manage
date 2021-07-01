@@ -6,11 +6,11 @@
 export default {
   name: 'menu',
   components: {},
-  data() {
+  data () {
     return {}
   },
   watch: {},
   methods: {},
-  created() {}
+  created () {}
 }
 </script>
