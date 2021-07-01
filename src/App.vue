@@ -14,8 +14,7 @@ export default {
   components: {
     AConfigProvider: ConfigProvider
   },
-  data() {
-	let x = 1;
+  data () {
     return {
       zhCN,
       transformCellText: ({ text }) => {
@@ -32,8 +31,7 @@ export default {
       }
     }
   },
-  watch: {
-  },
+  watch: {},
   methods: {},
   created () {}
 }
