@@ -31,6 +31,7 @@ const assetsCDN = {
 const vueConfig = {
   publicPath: './',
   outputDir: 'dist-' + process.env.ENV,
+  runtimeCompiler: true,
   configureWebpack: config => {
     if (isProd) {
       config.externals = assetsCDN.externals
