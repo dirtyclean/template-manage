@@ -4,7 +4,7 @@ const HtmlWebpackInlinePlugin = require('html-webpack-inline-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, dir)
 }
 
@@ -99,7 +99,7 @@ const vueConfig = {
       .loader('vue-loader')
       .tap(options => {
         options.compilerOptions.directives = {
-          html(node, directiveMeta) {
+          html (node, directiveMeta) {
             // onIgnoreTagAttr 自定义匹配到不在白名单上的属性时的处理方法
             ;(node.props || (node.props = [])).push({
               name: 'innerHTML',
