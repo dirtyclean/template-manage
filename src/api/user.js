@@ -17,6 +17,28 @@ const menus = [
         router: 'template:edit'
       }
     ]
+  },
+  {
+    label: 'system',
+    router: 'system',
+    children: [
+      {
+        router: 'menu',
+        label: 'menu'
+      },
+      {
+        router: 'user',
+        label: 'user'
+      },
+      {
+        router: 'role',
+        label: 'role'
+      },
+      {
+        router: 'version',
+        label: 'version'
+      }
+    ]
   }
 ]
 const sortMenu = data => {
@@ -29,6 +51,26 @@ const sortMenu = data => {
     })
   }
   sort(data)
+  return data
+}
+const setPromiseBtns = data => {
+  const find = (list, parent) => {
+    for (let i = list.length - 1; i >= 0; i--) {
+      const item = list[i]
+      if (parent && item.router.includes(':')) {
+        if (parent.promiseBtns) {
+          parent.promiseBtns.push(item.router.split(':')[1])
+        } else {
+          parent.promiseBtns = [item.router.split(':')[1]]
+        }
+        list.splice(i, 1)
+      }
+      if (item.children?.length) {
+        find(item.children, item)
+      }
+    }
+  }
+  find(data)
   return data
 }
 const login = ({ password, account, scene, sessionId, sig, token }) => {
@@ -67,33 +109,7 @@ const getUserInfo = async () => {
   return await req
     .get('/user/users/getUserInfo', {})
     .then(res => {
-      // permissionValid 权限有效期
-      const { permissionValid, realName, userId, userName, isProvince, isResetPassword, areaId, areaCode } = res
-      const setPromiseBtns = data => {
-        const find = (list, parent) => {
-          for (let i = list.length - 1; i >= 0; i--) {
-            const item = list[i]
-            if (parent && item.router.includes(':')) {
-              if (
-                ((parent.router === 'areaManage' || parent.router === 'personManage') && permissionValid) ||
-                (parent.router !== 'areaManage' && parent.router !== 'personManage')
-              ) {
-                if (parent.promiseBtns) {
-                  parent.promiseBtns.push(item.router.split(':')[1])
-                } else {
-                  parent.promiseBtns = [item.router.split(':')[1]]
-                }
-              }
-              list.splice(i, 1)
-            }
-            if (item.children?.length) {
-              find(item.children, item)
-            }
-          }
-        }
-        find(data)
-        return data
-      }
+      const { realName, userId, userName, isProvince, isResetPassword, areaId, areaCode } = res
       const menus = getTreeData(res.menus || [], 'id', 'permissionPid')
       res.menus = sortMenu(setPromiseBtns(menus))
       res.roleLevels = res.roleLevels
@@ -119,9 +135,9 @@ const getUserInfo = async () => {
     .catch(() => {
       console.log('catch')
       if (process.env.NODE_ENV !== 'production') {
-        addRoutes({ menus: sortMenu(menus) })
+        addRoutes({ menus: sortMenu(setPromiseBtns(menus)) })
       }
-      Vue.prototype.setUserInfo({})
+      Vue.prototype.setUserInfo({ menus: sortMenu(setPromiseBtns(menus)) })
       return {}
     })
 }
@@ -133,11 +149,15 @@ export default {
     getUserHavePromiseMenus,
     getUserInfo
   },
-  getList: async () => {
-    return {
-      list: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      rowCount: 10
-    }
+  getList: () => {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        resolve({
+          list: [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+          rowCount: 10
+        })
+      }, 2000)
+    })
   },
   del: async () => {
     return true

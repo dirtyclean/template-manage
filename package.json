@@ -25,6 +25,7 @@
     "patch-package": "^6.2.2",
     "sass-loader": "^10.1.0",
     "stylelint-config-rational-order": "^0.1.2",
+    "svg-sprite-loader": "^6.0.9",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.11",
     "vue-froala-wysiwyg": "^3.2.6",

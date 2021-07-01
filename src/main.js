@@ -15,6 +15,7 @@ import contentHeader from '@/components/content/content-header'
 import '@/utils/editor'
 import '@/utils/directives'
 import '@/utils/sysEvt/sysEvtBus'
+import '@/icons'
 moment.locale('zh-cn')
 simpleTable.install = function (Vue) {
   Vue.component(simpleTable.name, simpleTable)

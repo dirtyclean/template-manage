@@ -1,9 +1,3 @@
-/*
- * @Author: dirtyclean
- * @Date: 2021-07-01 19:41:46
- * @Last Modified by:   dirtyclean
- * @Last Modified time: 2021-07-01 19:41:46
- */
 <template>
   <div>
     <contentHeader :filterComponentsData="filterComponentsData" :searchParams.sync="searchParams" @search="updateTable">
@@ -15,19 +9,14 @@
       </template>
     </contentHeader>
     <simpleTable :columns="columns" :getAsyncTableData="getTableData" ref="simpleTable" :asyncDelApi="del">
-      <template v-slot:operate="record">
-        <span>作用域插槽{{ record }}</span>
-      </template>
     </simpleTable>
   </div>
 </template>
 
 <script>
 import { Icon, Button } from 'ant-design-vue'
-import { DATEPICK_OPTION } from '@/config'
-
 export default {
-  name: 'template',
+  name: 'user',
   components: {
     AIcon: Icon,
     AButton: Button
@@ -37,18 +26,20 @@ export default {
       // table
       columns: [
         {
-          title: '自定义指令',
-          dataIndex: 'directives',
-          customRender: () => {
-            const directives = [{ name: 'has', value: ['add'], modifiers: {} }]
-            return <span {...{ directives }}>测试自定义指令</span>
-          }
+          title: '用户名',
+          dataIndex: 'x'
         },
         {
-          title: '作用域插槽',
-          dataIndex: 'slot',
-          scopedSlots: { customRender: 'operate' },
-          width: 200
+          title: '姓名',
+          dataIndex: 'xx'
+        },
+        {
+          title: '联系电话',
+          dataIndex: 'xxx'
+        },
+        {
+          title: '角色',
+          dataIndex: 'xxxx'
         },
         {
           title: '操作',
@@ -82,58 +73,23 @@ export default {
       filterComponentsData: [
         {
           type: 'input',
-          searchKey: 'input',
+          searchKey: 'name',
           antdApi: {
-            placeholder: '搜索',
+            placeholder: '搜索用户名',
             allowClear: true
           }
         },
         {
-          type: 'select',
-          searchKey: 'select',
+          type: 'input',
+          searchKey: 'phone',
           antdApi: {
-            placeholder: '选择',
-            options: [
-              {
-                label: '123',
-                value: '123'
-              }
-            ]
-          }
-        },
-        {
-          type: 'cascader',
-          antdApi: {
-            placeholder: '级联',
-            allowClear: false
-          },
-          searchKey: 'cascader'
-        },
-        {
-          type: 'date-picker',
-          antdApi: {
-            placeholder: '日期'
-          },
-          searchKey: 'date-picker'
-        },
-        {
-          type: 'range-picker',
-          searchKey: 'range-picker',
-          antdApi: {
-            placeholder: ['开始日期', '结束日期'],
-            ...DATEPICK_OPTION({
-              showTime: false,
-              format: 'YYYY-MM-DD'
-            })
+            placeholder: '搜索手机号码'
           }
         }
       ],
       searchParams: {
-        input: '默认',
-        select: undefined,
-        'date-picker': this.$moment(),
-        'range-picker': [],
-        cascader: []
+        name: '',
+        phone: ''
       }
     }
   },
@@ -155,17 +111,17 @@ export default {
         title: record ? '编辑' : '新增'
       })
     },
-    del (delId) {
-      return this.$apiReq.del({ id: delId })
+    async del (delId) {
+      await this.$apiReq.del({ id: delId })
     },
-    getTableData (
+    async getTableData (
       pagination = {
         pageNum: 1,
         pageSize: 10
       }
     ) {
       console.log(pagination, this.searchParams)
-      return this.$apiReq
+      return await this.$apiReq
         .getList({
           ...pagination,
           ...this.searchParams
@@ -173,7 +129,8 @@ export default {
         .then(({ list, rowCount }) => {
           return {
             list,
-            rowCount
+            rowCount,
+            cs: 234
           }
         })
     }

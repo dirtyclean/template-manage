@@ -7,26 +7,50 @@ Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 Vue.use(Router)
+const Layout = {
+  template: `
+      <router-view></router-view>
+  `
+}
 export const asyncRoutes = [
   {
     path: '/',
     component: () => import('../views/index.vue'),
-    redirect: '/template',
-    name: '/',
     children: [
       {
         path: '/template',
-        component: () => import('../views/template/index.vue'),
         name: 'template',
+        component: () => import('../views/template/index.vue'),
         meta: { icon: () => import('@/assets/img/svg/template.svg') }
       },
       {
         path: '/system',
-        component: () => import('../views/system/index.vue'),
         name: 'system',
+        component: Layout,
+        redirect: '/notChild',
         meta: { icon: () => import('@/assets/img/svg/system.svg') },
-        redirect: '/notChild', // 不授予任何子权限，重定向到/notChild
-        children: []
+        children: [
+          {
+            path: 'menu',
+            name: 'menu',
+            component: () => import('@/views/system/menu/index')
+          },
+          {
+            path: 'user',
+            name: 'user',
+            component: () => import('@/views/system/user/index')
+          },
+          {
+            path: 'role',
+            name: 'role',
+            component: () => import('@/views/system/role/index')
+          },
+          {
+            path: 'version',
+            name: 'version',
+            component: () => import('@/views/system/version/index')
+          }
+        ]
       }
     ]
   }

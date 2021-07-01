@@ -7,7 +7,9 @@
 
 <script>
 // doc: https://panjiachen.github.io/vue-element-admin-site/feature/component/svg-icon.html#usage
-import { isExternal } from '@/utils/validate'
+function isExternal (path) {
+  return /^(https?:|mailto:|tel:)/.test(path)
+}
 
 export default {
   name: 'SvgIcon',
@@ -30,10 +32,9 @@ export default {
     },
     svgClass () {
       if (this.className) {
-        return 'svg-icon ' + this.className
-      } else {
-        return 'svg-icon'
+        return `svg-icon ${this.className}`
       }
+      return 'svg-icon'
     },
     styleExternalIcon () {
       return {
