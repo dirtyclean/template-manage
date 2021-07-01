@@ -14,7 +14,7 @@ export default {
   components: {
     AConfigProvider: ConfigProvider
   },
-  data () {
+  data() {
     return {
       zhCN,
       transformCellText: ({ text }) => {
