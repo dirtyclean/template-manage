@@ -25,6 +25,7 @@ export const asyncRoutes = [
       },
       {
         path: '/system',
+        name: 'system',
         component: Layout,
         redirect: '/notChild',
         meta: { icon: () => import('@/assets/img/svg/system.svg') },
@@ -72,7 +73,7 @@ const constantRoutes = [
 ]
 const createRouter = () => {
   return new Router({
-    routes: [...constantRoutes, ...asyncRoutes]
+    routes: [...constantRoutes]
   })
 }
 const router = createRouter()

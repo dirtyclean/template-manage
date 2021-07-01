@@ -79,20 +79,19 @@ const vueConfig = {
       .use('vue-svg-loader')
       .loader('vue-svg-loader')
     // set svg-sprite-loader
+    // 让其他svg loader不要对src/icons进行处理
+    config.module.rule('svg').exclude.add(resolve('src/icons'))
+    // 新建规则处理svg文件
     config.module
-      .rule('svg')
-      .exclude.add(resolve('src/icons'))
-      .end()
-    config.module
-      .rule('icons')
-      .test(/\.svg$/)
-      .include.add(resolve('src/icons'))
-      .end()
-      .use('svg-sprite-loader')
-      .loader('svg-sprite-loader')
+      .rule('icons') // 创建一个icons规则
+      .test(/\.svg$/) // 添加匹配规则
+      .include.add(resolve('src/icons')) // 添加我们要处理的文件路径
+      .end() // 上面的add方法改变了上下文，调用end()退回到include这一级
+      .use('svg-sprite-loader') // 使用"svg-sprite-loader"这个依赖
+      .loader('svg-sprite-loader')// 选中这个依赖
       .options({
-        symbolId: 'icon-[name]'
-      })
+        symbolId: 'icon-[name]' // 这个配置是这个包的配置不属于webpack，可以查看相关文档，symbolId指定我们使用svg图片的名字
+      }) // 传入配置
       .end()
     config.module
       .rule('vue')
