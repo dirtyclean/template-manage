@@ -116,6 +116,7 @@ const vueConfig = {
     // eslint --fix
     config.module
       .rule('eslint')
+      .test(/\.(vue|js?)$/)
       .use('eslint-loader')
       .loader('eslint-loader')
       .tap(options => {
@@ -183,7 +184,7 @@ const vueConfig = {
   productionSourceMap: false,
   lintOnSave: true,
   // babel-loader no-ignore node_modules/*
-  transpileDependencies: []
+  transpileDependencies: [],
 }
 
 module.exports = vueConfig
