@@ -7,7 +7,7 @@
           <div class="logo-title mb15">
             XXX系统
           </div>
-          <div class="sub-title"></div>
+          <div class="sub-title"></div><div class="sub-title"></div><div class="sub-title"></div><div class="sub-title"></div><div class="sub-title"></div><div class="sub-title"></div>
         </div>
       </div>
       <a-form id="formLogin" ref="formLogin" class="user-layout-login" :form="form" @submit="handleSubmit">

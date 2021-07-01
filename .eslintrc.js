@@ -18,3 +18,5 @@ module.exports = {
     'space-before-function-paren': ['warn', 'always']
   }
 }
+// 因为 prettier 只是会帮我们格式化代码，并不能够修复所有 eslint 错误，比如定义未使用的变量，prettier 不会自动帮我们删除，要手动删除。
+// 因此，prettier 后再 eslint，是有必要的。

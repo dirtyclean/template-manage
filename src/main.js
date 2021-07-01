@@ -22,6 +22,12 @@ simpleTable.install = function (Vue) {
 contentHeader.install = function (Vue) {
   Vue.component(contentHeader.name, contentHeader)
 }
+
+Message.config({
+  duration: 2,
+  maxCount: 3, // 最大显示数, 超过限制时，最早的消息会被自动关闭
+  top: 70
+})
 const plugins = {}
 plugins.install = vue => {
   Vue.prototype.$download = download

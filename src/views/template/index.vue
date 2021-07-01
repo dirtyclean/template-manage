@@ -1,3 +1,9 @@
+/*
+ * @Author: dirtyclean
+ * @Date: 2021-07-01 19:41:46
+ * @Last Modified by:   dirtyclean
+ * @Last Modified time: 2021-07-01 19:41:46
+ */
 <template>
   <div>
     <contentHeader :filterComponentsData="filterComponentsData" :searchParams.sync="searchParams" @search="updateTable">
