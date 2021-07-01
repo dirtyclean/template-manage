@@ -15,7 +15,6 @@ export default {
     AConfigProvider: ConfigProvider
   },
   data() {
-    let x = 1
     return {
       zhCN,
       transformCellText: ({ text }) => {
