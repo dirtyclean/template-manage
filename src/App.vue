@@ -31,7 +31,8 @@ export default {
       }
     }
   },
-  watch: {},
+  watch: {
+  },
   methods: {},
   created () {}
 }
