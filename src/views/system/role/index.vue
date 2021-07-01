@@ -6,11 +6,11 @@
 export default {
   name: 'role',
   components: {},
-  data () {
+  data() {
     return {}
   },
   watch: {},
   methods: {},
-  created () {}
+  created() {}
 }
 </script>

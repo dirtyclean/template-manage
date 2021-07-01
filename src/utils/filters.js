@@ -8,7 +8,7 @@ const noDataFormat = value => {
     return value
   }
 }
-Vue.filter('noDataFormat', function (value) {
+Vue.filter('noDataFormat', function(value) {
   return noDataFormat(value)
 })
 export default {

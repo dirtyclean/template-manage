@@ -23,7 +23,7 @@
 <script>
 import { Button, Input, Row, Col, FormModel } from 'ant-design-vue'
 export default {
-  data () {
+  data() {
     let operator = ''
     const userInfo = this.userInfo
     if (userInfo) {
@@ -63,16 +63,16 @@ export default {
       type: Function
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.$refs.form && this.$refs.form.resetFields()
   },
-  mounted () {
+  mounted() {
     this.beforeShowModal()
   },
   methods: {
-    beforeShowModal () {},
-    async save () {},
-    async handleOk () {
+    beforeShowModal() {},
+    async save() {},
+    async handleOk() {
       this.confirmLoading = true
       this.$refs.form.validate(async valid => {
         console.log(valid, 'valid')
