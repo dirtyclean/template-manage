@@ -9,7 +9,8 @@
     "lint": "vue-cli-service lint",
     "lint-css": "stylelint --fix src/**/*.{css,less,scss,vue}",
     "postinstall": "patch-package",
-    "prettier": "prettier --write *.js src/**/*.{js,vue,scss,css}"
+    "prettier": "prettier --write *.js src/**/*.{js,vue,scss,css}",
+    "dll": "webpack -p --progress --config ./webpack.dll.config.js"
   },
   "dependencies": {
     "ant-design-vue": "^1.7.5",
@@ -54,7 +55,8 @@
     "stylelint-config-sass-guidelines": "^8.0.0",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-cli": "^4.7.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

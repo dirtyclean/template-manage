@@ -53,6 +53,14 @@ const vueConfig = {
           test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
           threshold: 10240,
           minRatio: 0.8
+        }),
+        /* dllPlugin关联配置
+        告诉 webpack 公共库文件已经编译好了，减少 webpack 对公共库的编译 */
+        new webpack.DllReferencePlugin({
+          // 跟dll.config里面DllPlugin的context一致
+          context: process.cwd(),
+          // dll过程生成的manifest文件
+          manifest: require(path.join(process.cwd(), 'public/vendor', 'vendor-manifest.json'))
         })
       )
     }
