@@ -5,6 +5,5 @@
   "singleQuote": true,
   "semi": false,
   "trailingComma": "none",
-  "eslintIntegration": true,
   "endOfLine": "lf"
 }

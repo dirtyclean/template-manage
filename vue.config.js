@@ -3,6 +3,9 @@ const webpack = require('webpack')
 const HtmlWebpackInlinePlugin = require('html-webpack-inline-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const chalk = require('chalk')
 const productionGzipExtensions = ['js', 'css']
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -30,6 +33,7 @@ const assetsCDN = {
 // vue.config.js
 const vueConfig = {
   publicPath: './',
+  assetsDir: 'static',
   outputDir: 'dist-' + process.env.ENV,
   runtimeCompiler: true,
   configureWebpack: config => {
@@ -54,14 +58,11 @@ const vueConfig = {
           threshold: 10240,
           minRatio: 0.8
         }),
-        /* dllPlugin关联配置
-        告诉 webpack 公共库文件已经编译好了，减少 webpack 对公共库的编译 */
-        new webpack.DllReferencePlugin({
-          // 跟dll.config里面DllPlugin的context一致
-          context: process.cwd(),
-          // dll过程生成的manifest文件
-          manifest: require(path.join(process.cwd(), 'public/vendor', 'vendor-manifest.json'))
-        })
+        new ProgressBarPlugin({
+          format: ' build [:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
+          clear: false
+        }),
+        new HardSourceWebpackPlugin()
       )
     }
     return {
