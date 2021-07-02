@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <a-config-provider :locale="zhCN" :getPopupContainer="getPopupContainer" :transformCellText="transformCellText"
-      ><router-view></router-view
-    ></a-config-provider>
+    <a-config-provider :locale="zhCN" :getPopupContainer="getPopupContainer" :transformCellText="transformCellText">
+      <router-view></router-view>
+    </a-config-provider>
   </div>
 </template>
 
